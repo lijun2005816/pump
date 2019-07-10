@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">智能泵站</string>
+    <string name="title_data">数据</string>
+    <string name="title_home">首页</string>
+    <string name="title_mine">我的</string>
+    <string name="title_service">客服</string>
+    <string name="device_english">EQUIPMENT</string>
+    <string name="water_english">WATER QUALITY</string>
+    <string name="device">设备监测</string>
+    <string name="water">水质监测</string>
+    <string name="energy">能源系统</string>
+    <string name="energy_english">ENERGY</string>
+    <string name="video">视频系统</string>
+    <string name="video_english">VIDEO</string>
+    <string name="time_curr">12:00:03</string>
+    <string name="date_curr">2018年02月16日</string>
+    <string name="location_curr">上海A0001号泵站</string>
+    <string name="data_motitor">实时监测</string>
+    <string name="data_table">图表统计</string>
+    <string name="data_save">数据保存</string>
+    <string name="data_history">历史查看</string>
+    <string name="temp_unit">℃</string>
+    <string name="temp_monitor">温度监控</string>
+    <string name="vib_monitor">振动监控</string>
+    <string name="press_monitor">压力监控</string>
+    <string name="volu_monitor">流量监控</string>
+    <string name="mine_login">登录/注册</string>
+    <string name="my_message">我的信息</string>
+    <string name="my_message_english">MY MESSAGES</string>
+    <string name="device_settings">设备设置</string>
+    <string name="device_settings_english">DEVICES SETTINGS</string>
+    <string name="service_oper">操作指导</string>
+    <string name="service_oper_english">USER GUIDE</string>
+    <string name="service_more">更多服务</string>
+    <string name="service_more_english">MORE SERVICE</string>
+    <string name="about_us">关于我们</string>
+    <string name="about_us_english">ABOUT US</string>
+    <string name="about_app">关于应用</string>
+    <string name="about_app_english">ABOUT APP</string>
+    <string name="temp_motor">水泵轴承温度</string>
+    <string name="temp_round_1">电机轴承温度</string>
+    <string name="temp_round_2">定子温度1</string>
+    <string name="temp_fix">定子温度2</string>
+    <string name="temp_fix2">定子温度3</string>
+    <string name="vib_unit">um</string>
+    <string name="vib_ams">振动幅度</string>
+    <string name="press_unit">MPa</string>
+    <string name="press_output">出口压力</string>
+    <string name="volu_water">水流流量</string>
+    <string name="volu_unit">m3/h</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="username_propt">请输入用户名</string>
+    <string name="password_propt">请输入密码</string>
+    <string name="mine_company">单位</string>
+    <string name="mine_department">部门</string>
+    <string name="mine_role">角色</string>
+    <string name="product_key">产品</string>
+    <string name="device_key">设备</string>
+    <string name="login_fail">用户名或密码不正确</string>
+    <string name="data_save_start">起始时间</string>
+    <string name="data_save_end">结束时间</string>
+    <string name="data_save_local">保存本地数据</string>
+    <string name="data_save_cloud">保存云端数据</string>
+    <string name="service_about_app_detail">智慧泵站APP由上海思稞信息科技有限公司与上海丰遂实业有限公司联合开发，用于泵站智慧监控。版权所有，违者必究。</string>
+    <string name="service_guide_detail">操作指导：\n1. 首次安装该APP软件，您需要进入到登录界面，点击“注册”按钮，输入您的真实的账户信息。\n2. 该APP的“首页”界面帮助您查看各个模块的监测信息。\n3. 软件的“数据”界面帮助您查看实时监测数据；图表显示当前的数据曲线；数据保存帮您选择需要保存的数据；历史查看可以让您查阅近期的监测记录。\n4. 客服“界面帮您了解如何注册，登录以及如何联系我们。\n5. “我的”界面帮您查阅个人账户信息。</string>
+    <string name="service_more_detail">如需更多服务，请联系公司邮箱： fsskindustry@163.com，我们将在24小时内给您回复。</string>
+    <string name="service_about_us_detail">我们秉持“为客户创造价值！”的理念，为客户提供远程监测，远程控制，专家咨询等智能监控和万物互联解决方案。请联系公司邮箱： fsskindustry@163.com</string>
+    <string name="mine_et_input_pump">请输入泵站名称</string>
+    <string name="ch1_range">1号</string>
+    <string name="ch2_range">2号</string>
+    <string name="ch3_range">3号</string>
+    <string name="ch4_range">4号</string>
+    <string name="ch5_range">5号</string>
+    <string name="ch6_range">6号</string>
+    <string name="ch7_range">7号</string>
+    <string name="ch8_range">8号</string>
+    <string name="temp_range_default">-50~150</string>
+    <string name="temp_warning_low_default">-50</string>
+    <string name="temp_warning_high_default">150</string>
+    <string-array name="temp_range">
+        <item>-50~150</item>
+        <item>-50~200</item>
+    </string-array>
+    <string name="vib_range_default">0~2000</string>
+    <string name="vib_warning_low_default">0</string>
+    <string name="vib_warning_high_default">2000</string>
+    <string-array name="vib_range">
+        <item>0~2000</item>
+    </string-array>
+    <string name="press_range_default">-0.1~0.15</string>
+    <string name="press_warning_low_default">-0.1</string>
+    <string name="press_warning_high_default">0.15</string>
+    <string-array name="press_range">
+        <item>-0.1~0.15</item>
+        <item>-0.1~0.6</item>
+        <item>0~0.3</item>
+        <item>0~0.6</item>
+        <item>0~1</item>
+        <item>0~1.5</item>
+        <item>0~2.5</item>
+        <item>0~4</item>
+    </string-array>
+    <string name="volume_range_default">108~1080</string>
+    <string name="volume_warning_low_default">108</string>
+    <string name="volume_warning_high_default">1080</string>
+    <string-array name="volume_range">
+        <item>108~1080</item>
+        <item>240~2400</item>
+        <item>450~4500</item>
+        <item>660~4500</item>
+        <item>900~9000</item>
+        <item>1800~18000</item>
+        <item>4200~42000</item>
+    </string-array>
+    <string name="ch_no">通道</string>
+    <string name="setting_range">范围设置</string>
+    <string name="warning_low">报警下限</string>
+    <string name="warning_high">报警上限</string>
+    <string name="unit">单位</string>
+    <string name="mine_device_num">序号</string>
+    <string name="operation">连接</string>
+    <string name="device1">1</string>
+    <string name="device2">2</string>
+    <string name="device3">3</string>
+    <string-array name="product_list">
+    </string-array>
+    <string-array name="device_list">
+    </string-array>
+</resources>

@@ -1,0 +1,130 @@
+<resources>
+    <string name="app_name">Smart Pump</string>
+    <string name="title_home">Home</string>
+    <string name="title_data">Data</string>
+    <string name="title_service">Service</string>
+    <string name="title_mine">Mine</string>
+    <string name="device_english">EQUIPMENT</string>
+    <string name="water_english">WATER QUALITY</string>
+    <string name="device">Equipment</string>
+    <string name="water">Water Quality</string>
+    <string name="energy">Energy</string>
+    <string name="energy_english">ENERGY</string>
+    <string name="video">Video System</string>
+    <string name="video_english">VIDEO</string>
+    <string name="time_curr">12:00:03</string>
+    <string name="date_curr">16th Feb 2018</string>
+    <string name="location_curr">Shanghai A0001 Pump Station</string>
+    <string name="data_motitor">Real Time</string>
+    <string name="data_table">Charts</string>
+    <string name="data_save">Save</string>
+    <string name="data_history">History</string>
+    <string name="temp_unit">℃</string>
+    <string name="temp_monitor">Temperature Monitor</string>
+    <string name="vib_monitor">Viberation Monitor</string>
+    <string name="press_monitor">Pressure Monitor</string>
+    <string name="volu_monitor">Volumn Monitor</string>
+    <string name="mine_login">Login/Register</string>
+    <string name="my_message">My Messages</string>
+    <string name="my_message_english">MY MESSAGES</string>
+    <string name="device_settings">Device Settings</string>
+    <string name="device_settings_english">DEVICES SETTINGS</string>
+    <string name="service_oper">User Guide</string>
+    <string name="service_oper_english">USER GUIDE</string>
+    <string name="service_more">More Service</string>
+    <string name="service_more_english">MORE SERVICE</string>
+    <string name="about_us">About Us</string>
+    <string name="about_us_english">ABOUT US</string>
+    <string name="about_app">About App</string>
+    <string name="about_app_english">ABOUT APP</string>
+    <string name="temp_motor">Pump Bearing Temperature</string>
+    <string name="temp_round_1">Motor Bearing Temperature</string>
+    <string name="temp_round_2">Stator Temperature No. 1</string>
+    <string name="temp_fix">Stator Temperature No. 2</string>
+    <string name="temp_fix2">Stator Temperature No. 3</string>
+    <string name="vib_unit">um</string>
+    <string name="vib_ams">Vibration Amplitude</string>
+    <string name="press_unit">MPa</string>
+    <string name="press_output">Outlet Pressure</string>
+    <string name="volu_water">Water Flow Capacity</string>
+    <string name="volu_unit">m3/h</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="username_propt">Please input username</string>
+    <string name="password_propt">Please input password</string>
+    <string name="mine_company">Company</string>
+    <string name="mine_department">Department</string>
+    <string name="mine_role">Role</string>
+    <string name="product_key">Product</string>
+    <string name="device_key">Device</string>
+    <string name="login_fail">Username or password error</string>
+    <string name="data_save_start">Start time</string>
+    <string name="data_save_end">End time</string>
+    <string name="data_save_local">Save local data</string>
+    <string name="data_save_cloud">Save cloud data</string>
+    <string name="service_about_app_detail">智慧泵站APP由上海思稞信息科技有限公司与上海丰遂实业有限公司联合开发，用于泵站智慧监控。版权所有，违者必究。</string>
+    <string name="service_guide_detail">操作指导：\n1. 首次安装该APP软件，您需要进入到登录界面，点击“注册”按钮，输入您的真实的账户信息。\n2. 该APP的“首页”界面帮助您查看各个模块的监测信息。\n3. 软件的“数据”界面帮助您查看实时监测数据；图表显示当前的数据曲线；数据保存帮您选择需要保存的数据；历史查看可以让您查阅近期的监测记录。\n4. 客服“界面帮您了解如何注册，登录以及如何联系我们。\n5. “我的”界面帮您查阅个人账户信息。</string>
+    <string name="service_more_detail">如需更多服务，请联系公司邮箱： fsskindustry@163.com，我们将在24小时内给您回复。</string>
+    <string name="service_about_us_detail">我们秉持“为客户创造价值！”的理念，为客户提供远程监测，远程控制，专家咨询等智能监控和万物互联解决方案。请联系公司邮箱： fsskindustry@163.com</string>
+    <string name="mine_et_input_pump">Pls input Name</string>
+    <string name="ch1_range">No. 1</string>
+    <string name="ch2_range">No. 2</string>
+    <string name="ch3_range">No. 3</string>
+    <string name="ch4_range">No. 4</string>
+    <string name="ch5_range">No. 5</string>
+    <string name="ch6_range">No. 6</string>
+    <string name="ch7_range">No. 7</string>
+    <string name="ch8_range">No. 8</string>
+    <string name="temp_range_default">-50~150</string>
+    <string name="temp_warning_low_default">-50</string>
+    <string name="temp_warning_high_default">150</string>
+    <string-array name="temp_range">
+        <item>-50~150</item>
+        <item>-50~200</item>
+    </string-array>
+    <string name="vib_range_default">0~2000</string>
+    <string name="vib_warning_low_default">0</string>
+    <string name="vib_warning_high_default">2000</string>
+    <string-array name="vib_range">
+        <item>0~2000</item>
+    </string-array>
+    <string name="press_range_default">-0.1~0.15</string>
+    <string name="press_warning_low_default">-0.1</string>
+    <string name="press_warning_high_default">0.15</string>
+    <string-array name="press_range">
+        <item>-0.1~0.15</item>
+        <item>-0.1~0.6</item>
+        <item>0~0.3</item>
+        <item>0~0.6</item>
+        <item>0~1</item>
+        <item>0~1.5</item>
+        <item>0~2.5</item>
+        <item>0~4</item>
+    </string-array>
+    <string name="volume_range_default">108~1080</string>
+    <string name="volume_warning_low_default">108</string>
+    <string name="volume_warning_high_default">1080</string>
+    <string-array name="volume_range">
+        <item>108~1080</item>
+        <item>240~2400</item>
+        <item>450~4500</item>
+        <item>660~4500</item>
+        <item>900~9000</item>
+        <item>1800~18000</item>
+        <item>4200~42000</item>
+    </string-array>
+    <string name="ch_no">Channel</string>
+    <string name="setting_range">Range setting</string>
+    <string name="warning_low">High warning</string>
+    <string name="warning_high">Low warning</string>
+    <string name="unit">Unit</string>
+    <string name="mine_device_num">NO.</string>
+    <string name="operation">Link</string>
+    <string name="device1">1</string>
+    <string name="device2">2</string>
+    <string name="device3">3</string>
+    <string-array name="product_list">
+    </string-array>
+    <string-array name="device_list">
+    </string-array>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@mipmap/ic_home_black"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_data"
+        android:icon="@mipmap/ic_data_black"
+        android:title="@string/title_data" />
+
+    <item
+        android:id="@+id/navigation_service"
+        android:icon="@mipmap/ic_service_black"
+        android:title="@string/title_service" />
+
+    <item
+        android:id="@+id/navigation_mine"
+        android:icon="@mipmap/ic_mine_black"
+        android:title="@string/title_mine" />
+
+</menu>
