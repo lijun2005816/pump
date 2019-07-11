@@ -561,7 +561,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             android:gravity="center_vertical|end"
-                            android:text="@string/volu_unit"
+                            android:text="@string/volume_unit"
                             android:textColor="@android:color/darker_gray"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -787,7 +787,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             android:gravity="center_vertical|end"
-                            android:text="@string/volu_unit"
+                            android:text="@string/volume_unit"
                             android:textColor="@android:color/darker_gray"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -1157,7 +1157,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             android:gravity="center_vertical|end"
-                            android:text="@string/volu_unit"
+                            android:text="@string/volume_unit"
                             android:textColor="@android:color/darker_gray"
                             android:textSize="14sp" />
                     </LinearLayout>

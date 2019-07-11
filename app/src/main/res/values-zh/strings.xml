@@ -48,7 +48,7 @@
     <string name="press_unit">MPa</string>
     <string name="press_output">出口压力</string>
     <string name="volu_water">水流流量</string>
-    <string name="volu_unit">m3/h</string>
+    <string name="volume_unit">m3/h</string>
     <string name="username">用户名</string>
     <string name="password">密码</string>
     <string name="username_propt">请输入用户名</string>
@@ -121,9 +121,9 @@
     <string name="unit">单位</string>
     <string name="mine_device_num">序号</string>
     <string name="operation">连接</string>
-    <string name="device1">1</string>
-    <string name="device2">2</string>
-    <string name="device3">3</string>
+    <string name="device1">1(水泵)</string>
+    <string name="device2">2(电机)</string>
+    <string name="device3">3(其它)</string>
     <string-array name="product_list">
     </string-array>
     <string-array name="device_list">

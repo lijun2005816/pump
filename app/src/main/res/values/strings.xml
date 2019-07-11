@@ -47,7 +47,7 @@
     <string name="press_unit">MPa</string>
     <string name="press_output">Outlet Pressure</string>
     <string name="volu_water">Water Flow Capacity</string>
-    <string name="volu_unit">m3/h</string>
+    <string name="volume_unit">m3/h</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="username_propt">Please input username</string>

@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,11 +18,13 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 import com.aliyun.alink.dm.api.DeviceInfo;
 import com.smartgreen.pump.MainActivity;
 import com.smartgreen.pump.R;
 import com.smartgreen.pump.model.UserInfo;
 import com.smartgreen.pump.util.Util;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -238,12 +241,122 @@ public class FragmentMine extends Fragment {
                     }
                     mDeviceInfo = mDeviceInfoList.get(0);
                     mBtnDeviceCheck[0][0].setChecked(true);
+                    initPump();
                     Util.setDeviceInfoToSP(getContext(), mDeviceInfo);
                     new Thread(mIotStartRunnable).start();
                 }
             });
         }
     };
+    private void initPump(){
+        Objects.requireNonNull(getContext());
+        String[] tempRange = getContext().getResources().getStringArray(R.array.temp_range);
+        ArrayAdapter<String> aa = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, tempRange);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        String tempDefault = getContext().getResources().getString(R.string.temp_range_default);
+        String tempLow = getContext().getResources().getString(R.string.temp_warning_low_default);
+        String tempHigh = getContext().getResources().getString(R.string.temp_warning_high_default);
+        String tempUnit = getContext().getResources().getString(R.string.temp_unit);
+        for(int i=0;i<2;i++) {
+            mSpMineChRange[i][0].setAdapter(aa);
+            mTvMineChRange[i][0].setText(tempDefault);
+            mTvMineChRange[i][1].setText(tempLow);
+            mTvMineChRange[i][2].setText(tempHigh);
+            mTvMineChRange[i][3].setText(tempUnit);
+        }
+        String[] vibRange = getContext().getResources().getStringArray(R.array.vib_range);
+        ArrayAdapter<String> bb = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, vibRange);
+        bb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        String vibDefault = getContext().getResources().getString(R.string.vib_range_default);
+        String vibLow = getContext().getResources().getString(R.string.vib_warning_low_default);
+        String vibHigh = getContext().getResources().getString(R.string.vib_warning_high_default);
+        String vibUnit = getContext().getResources().getString(R.string.vib_unit);
+        for(int i=2;i<6;i++) {
+            mSpMineChRange[i][0].setAdapter(bb);
+            mTvMineChRange[i][0].setText(vibDefault);
+            mTvMineChRange[i][1].setText(vibLow);
+            mTvMineChRange[i][2].setText(vibHigh);
+            mTvMineChRange[i][3].setText(vibUnit);
+        }
+        String[] pressRange = getContext().getResources().getStringArray(R.array.press_range);
+        ArrayAdapter<String> cc = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, pressRange);
+        cc.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        String pressDefault = getContext().getResources().getString(R.string.press_range_default);
+        String pressLow = getContext().getResources().getString(R.string.press_warning_low_default);
+        String pressHigh = getContext().getResources().getString(R.string.press_warning_high_default);
+        String pressUnit = getContext().getResources().getString(R.string.press_unit);
+        for(int i=6;i<7;i++) {
+            mSpMineChRange[i][0].setAdapter(cc);
+            mTvMineChRange[i][0].setText(pressDefault);
+            mTvMineChRange[i][1].setText(pressLow);
+            mTvMineChRange[i][2].setText(pressHigh);
+            mTvMineChRange[i][3].setText(pressUnit);
+        }
+        String[] volumeRange = getContext().getResources().getStringArray(R.array.volume_range);
+        ArrayAdapter<String> dd = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, volumeRange);
+        dd.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        String volumeDefault = getContext().getResources().getString(R.string.volume_range_default);
+        String volumeLow = getContext().getResources().getString(R.string.volume_warning_low_default);
+        String volumeHigh = getContext().getResources().getString(R.string.volume_warning_high_default);
+        String volumeUnit = getContext().getResources().getString(R.string.volume_unit);
+        for(int i=7;i<8;i++) {
+            mSpMineChRange[i][0].setAdapter(dd);
+            mTvMineChRange[i][0].setText(volumeDefault);
+            mTvMineChRange[i][1].setText(volumeLow);
+            mTvMineChRange[i][2].setText(volumeHigh);
+            mTvMineChRange[i][3].setText(volumeUnit);
+        }
+        for(int i = 0; i< mChCount; i++) {
+            String range = mTvMineChRange[i][0].getText().toString();
+            String warningLow = mTvMineChRange[i][1].getText().toString();
+            String warningHigh = mTvMineChRange[i][2].getText().toString();
+            Util.setChRangeWarning(i, range, warningLow, warningHigh);
+        }
+    }
+    private void initMotor(){
+        Objects.requireNonNull(getContext());
+        String[] tempRange = getContext().getResources().getStringArray(R.array.temp_range);
+        ArrayAdapter<String> aa = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, tempRange);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        String tempDefault = getContext().getResources().getString(R.string.temp_range_default);
+        String tempLow = getContext().getResources().getString(R.string.temp_warning_low_default);
+        String tempHigh = getContext().getResources().getString(R.string.temp_warning_high_default);
+        String tempUnit = getContext().getResources().getString(R.string.temp_unit);
+        for(int i=0;i<2;i++) {
+            mSpMineChRange[i][0].setAdapter(aa);
+            mTvMineChRange[i][0].setText(tempDefault);
+            mTvMineChRange[i][1].setText(tempLow);
+            mTvMineChRange[i][2].setText(tempHigh);
+            mTvMineChRange[i][3].setText(tempUnit);
+        }
+        for(int i=6;i<8;i++) {
+            mSpMineChRange[i][0].setAdapter(aa);
+            mTvMineChRange[i][0].setText(tempDefault);
+            mTvMineChRange[i][1].setText(tempLow);
+            mTvMineChRange[i][2].setText(tempHigh);
+            mTvMineChRange[i][3].setText(tempUnit);
+        }
+        String[] vibRange = getContext().getResources().getStringArray(R.array.vib_range);
+        ArrayAdapter<String> bb = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, vibRange);
+        bb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        String vibDefault = getContext().getResources().getString(R.string.vib_range_default);
+        String vibLow = getContext().getResources().getString(R.string.vib_warning_low_default);
+        String vibHigh = getContext().getResources().getString(R.string.vib_warning_high_default);
+        String vibUnit = getContext().getResources().getString(R.string.vib_unit);
+        for(int i=2;i<6;i++) {
+            mSpMineChRange[i][0].setAdapter(bb);
+            mTvMineChRange[i][0].setText(vibDefault);
+            mTvMineChRange[i][1].setText(vibLow);
+            mTvMineChRange[i][2].setText(vibHigh);
+            mTvMineChRange[i][3].setText(vibUnit);
+        }
+        for(int i = 0; i< mChCount; i++) {
+            String range = mTvMineChRange[i][0].getText().toString();
+            String warningLow = mTvMineChRange[i][1].getText().toString();
+            String warningHigh = mTvMineChRange[i][2].getText().toString();
+            Util.setChRangeWarning(i, range, warningLow, warningHigh);
+        }
+    }
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
@@ -304,9 +417,11 @@ public class FragmentMine extends Fragment {
 
                 case R.id.btn_product1_key:
                     mBtnDeviceSettingClick(R.id.btn_product1_key);
+                    initPump();
                     break;
                 case R.id.btn_product2_key:
                     mBtnDeviceSettingClick(R.id.btn_product2_key);
+                    initMotor();
                     break;
                 case R.id.btn_product3_key:
                     mBtnDeviceSettingClick(R.id.btn_product3_key);
