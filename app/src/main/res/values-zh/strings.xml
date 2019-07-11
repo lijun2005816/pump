@@ -38,16 +38,16 @@
     <string name="about_us_english">ABOUT US</string>
     <string name="about_app">关于应用</string>
     <string name="about_app_english">ABOUT APP</string>
-    <string name="temp_motor">水泵轴承温度</string>
-    <string name="temp_round_1">电机轴承温度</string>
-    <string name="temp_round_2">定子温度1</string>
-    <string name="temp_fix">定子温度2</string>
-    <string name="temp_fix2">定子温度3</string>
+    <string name="temp_motor">1号通道</string>
+    <string name="temp_round_1">2号通道</string>
+    <string name="temp_round_2">3号通道</string>
+    <string name="temp_fix">4号通道</string>
+    <string name="temp_fix2">5号通道</string>
     <string name="vib_unit">um</string>
-    <string name="vib_ams">振动幅度</string>
+    <string name="vib_ams">6号通道</string>
     <string name="press_unit">MPa</string>
-    <string name="press_output">出口压力</string>
-    <string name="volu_water">水流流量</string>
+    <string name="press_output">7号通道</string>
+    <string name="volu_water">8号通道</string>
     <string name="volume_unit">m3/h</string>
     <string name="username">用户名</string>
     <string name="password">密码</string>
@@ -121,9 +121,9 @@
     <string name="unit">单位</string>
     <string name="mine_device_num">序号</string>
     <string name="operation">连接</string>
-    <string name="device1">1(水泵)</string>
-    <string name="device2">2(电机)</string>
-    <string name="device3">3(其它)</string>
+    <string name="device1">1</string>
+    <string name="device2">2</string>
+    <string name="device3">3</string>
     <string-array name="product_list">
     </string-array>
     <string-array name="device_list">

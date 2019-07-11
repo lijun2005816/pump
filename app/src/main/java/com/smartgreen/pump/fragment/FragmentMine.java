@@ -417,11 +417,11 @@ public class FragmentMine extends Fragment {
 
                 case R.id.btn_product1_key:
                     mBtnDeviceSettingClick(R.id.btn_product1_key);
-                    initPump();
+                    //initPump();
                     break;
                 case R.id.btn_product2_key:
                     mBtnDeviceSettingClick(R.id.btn_product2_key);
-                    initMotor();
+                    //initMotor();
                     break;
                 case R.id.btn_product3_key:
                     mBtnDeviceSettingClick(R.id.btn_product3_key);

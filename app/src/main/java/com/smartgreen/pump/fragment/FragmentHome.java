@@ -69,7 +69,7 @@ public class FragmentHome extends Fragment {
                     parent.mMenuNav.setSelectedItemId(R.id.navigation_data);
                     break;
                 case R.id.iv_home_water:
-                    parent.mMenuNav.setSelectedItemId(R.id.navigation_data);
+                    //parent.mMenuNav.setSelectedItemId(R.id.navigation_data);
                     break;
                 case R.id.iv_home_energe:
                     //parent.mMenuNav.setSelectedItemId(R.id.navigation_data);

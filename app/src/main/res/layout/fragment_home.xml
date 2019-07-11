@@ -187,7 +187,7 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="20dp"
                             android:contentDescription="@string/title_home"
-                            app:srcCompat="@drawable/home_water" />
+                            app:srcCompat="@drawable/home_water_gray" />
 
                         <ImageView
                             android:id="@+id/imageView3"
@@ -197,7 +197,7 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
                             android:contentDescription="@string/title_home"
-                            app:srcCompat="@drawable/cancel" />
+                            app:srcCompat="@drawable/cancel_gray" />
 
                         <FrameLayout
                             android:layout_width="wrap_content"
@@ -220,7 +220,7 @@
                                 android:layout_gravity="center_horizontal"
                                 android:text="@string/water"
                                 android:textAlignment="center"
-                                android:textColor="@android:color/black"
+                                android:textColor="@android:color/darker_gray"
                                 android:textSize="14sp" />
                         </FrameLayout>
 

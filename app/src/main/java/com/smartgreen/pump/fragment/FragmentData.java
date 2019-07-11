@@ -141,8 +141,8 @@ public class FragmentData extends Fragment {
         mLineChartVib = view.findViewById(R.id.chart_vib);
         mLineChartPress = view.findViewById(R.id.chart_press);
         mLineChartVolume = view.findViewById(R.id.chart_volu);
-        initLineChart(mLineChartTemp, mLineDataTemp, 5);
-        initLineChart(mLineChartVib, mLineDataVib, 1);
+        initLineChart(mLineChartTemp, mLineDataTemp, 2);
+        initLineChart(mLineChartVib, mLineDataVib, 4);
         initLineChart(mLineChartPress, mLineDataPress, 1);
         initLineChart(mLineChartVolume, mLineDataVolume, 1);
         mDateStart = view.findViewById(R.id.dp_save_start);
@@ -159,8 +159,8 @@ public class FragmentData extends Fragment {
         mLineChartViewVib = view.findViewById(R.id.chart_data_history_vib);
         mLineChartViewPress = view.findViewById(R.id.chart_data_history_press);
         mLineChartViewVolume = view.findViewById(R.id.chart_data_history_volu);
-        initLineChart(mLineChartViewTemp, mLineDataViewTemp, 5);
-        initLineChart(mLineChartViewVib, mLineDataViewVib, 1);
+        initLineChart(mLineChartViewTemp, mLineDataViewTemp, 2);
+        initLineChart(mLineChartViewVib, mLineDataViewVib, 4);
         initLineChart(mLineChartViewPress, mLineDataViewPress, 1);
         initLineChart(mLineChartViewVolume, mLineDataViewVolume, 1);
         mTvDataPumpName = view.findViewById(R.id.tv_data_pump_name);
@@ -293,19 +293,19 @@ public class FragmentData extends Fragment {
             List<Float> temp = new ArrayList<>();
             temp.add(data.ch0);
             temp.add(data.ch1);
-            temp.add(data.ch2);
-            temp.add(data.ch3);
-            temp.add(data.ch4);
-            addEntry(mLineChartTemp, mLineDataTemp, temp, data.timestamp-mStartTime, 5);
+            addEntry(mLineChartTemp, mLineDataTemp, temp, data.timestamp-mStartTime, temp.size());
             List<Float> vib = new ArrayList<>();
+            vib.add(data.ch2);
+            vib.add(data.ch3);
+            vib.add(data.ch4);
             vib.add(data.ch5);
-            addEntry(mLineChartVib, mLineDataVib, vib, data.timestamp-mStartTime, 1);
+            addEntry(mLineChartVib, mLineDataVib, vib, data.timestamp-mStartTime, vib.size());
             List<Float> press = new ArrayList<>();
             press.add(data.ch6);
-            addEntry(mLineChartPress, mLineDataPress, press, data.timestamp-mStartTime, 1);
+            addEntry(mLineChartPress, mLineDataPress, press, data.timestamp-mStartTime, press.size());
             List<Float> volume = new ArrayList<>();
             volume.add(data.ch7);
-            addEntry(mLineChartVolume, mLineDataVolume, volume, data.timestamp-mStartTime, 1);
+            addEntry(mLineChartVolume, mLineDataVolume, volume, data.timestamp-mStartTime, volume.size());
         }
     }
 
@@ -462,12 +462,12 @@ public class FragmentData extends Fragment {
             float x = mLineDataTemp.getDataSetByIndex(0).getEntryForIndex(i).getX();
             long timeMil = Float.valueOf(x).longValue() + mStartTime;
             sb.append(df.format(timeMil));
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < 2; j++) {
                 float y = mLineDataTemp.getDataSetByIndex(j).getEntryForIndex(i).getY();
                 sb.append(",");
                 sb.append(y);
             }
-            for (int j = 0; j < 1; j++) {
+            for (int j = 0; j < 4; j++) {
                 float y = mLineDataVib.getDataSetByIndex(j).getEntryForIndex(i).getY();
                 sb.append(",");
                 sb.append(y);
@@ -667,19 +667,19 @@ public class FragmentData extends Fragment {
                     List<Float> tempList = new ArrayList<>();
                     tempList.add(Float.valueOf(list[1]));
                     tempList.add(Float.valueOf(list[2]));
-                    tempList.add(Float.valueOf(list[3]));
-                    tempList.add(Float.valueOf(list[4]));
-                    tempList.add(Float.valueOf(list[5]));
-                    addEntry(mLineChartViewTemp, mLineDataViewTemp, tempList, time-mStartTime, 5);
+                    addEntry(mLineChartViewTemp, mLineDataViewTemp, tempList, time-mStartTime, tempList.size());
                     List<Float> vibList = new ArrayList<>();
+                    vibList.add(Float.valueOf(list[3]));
+                    vibList.add(Float.valueOf(list[4]));
+                    vibList.add(Float.valueOf(list[5]));
                     vibList.add(Float.valueOf(list[6]));
-                    addEntry(mLineChartViewVib, mLineDataViewVib, vibList, time-mStartTime, 1);
+                    addEntry(mLineChartViewVib, mLineDataViewVib, vibList, time-mStartTime, vibList.size());
                     List<Float> pressList = new ArrayList<>();
                     pressList.add(Float.valueOf(list[6]));
-                    addEntry(mLineChartViewPress, mLineDataViewPress, pressList, time-mStartTime, 1);
+                    addEntry(mLineChartViewPress, mLineDataViewPress, pressList, time-mStartTime, pressList.size());
                     List<Float> volumeList = new ArrayList<>();
                     volumeList.add(Float.valueOf(list[6]));
-                    addEntry(mLineChartViewVolume, mLineDataViewVolume, volumeList, time-mStartTime, 1);
+                    addEntry(mLineChartViewVolume, mLineDataViewVolume, volumeList, time-mStartTime, volumeList.size());
                 }
                 fis.close();
             } catch (java.io.IOException | ParseException e) {
