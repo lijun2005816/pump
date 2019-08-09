@@ -82,10 +82,13 @@
         <item>-50~150</item>
         <item>-50~200</item>
     </string-array>
-    <string name="vib_range_default">0~2000</string>
+    <string name="vib_range_default">0~100</string>
     <string name="vib_warning_low_default">0</string>
-    <string name="vib_warning_high_default">2000</string>
+    <string name="vib_warning_high_default">100</string>
     <string-array name="vib_range">
+        <item>0~100</item>
+        <item>0~200</item>
+        <item>0~400</item>
         <item>0~2000</item>
     </string-array>
     <string name="press_range_default">-0.1~0.15</string>
@@ -101,17 +104,17 @@
         <item>0~2.5</item>
         <item>0~4</item>
     </string-array>
-    <string name="volume_range_default">108~1080</string>
-    <string name="volume_warning_low_default">108</string>
+    <string name="volume_range_default">0~1080</string>
+    <string name="volume_warning_low_default">0</string>
     <string name="volume_warning_high_default">1080</string>
     <string-array name="volume_range">
-        <item>108~1080</item>
-        <item>240~2400</item>
-        <item>450~4500</item>
-        <item>660~4500</item>
-        <item>900~9000</item>
-        <item>1800~18000</item>
-        <item>4200~42000</item>
+        <item>0~1080</item>
+        <item>0~2400</item>
+        <item>0~4500</item>
+        <item>0~4500</item>
+        <item>0~9000</item>
+        <item>0~18000</item>
+        <item>0~42000</item>
     </string-array>
     <string name="ch_no">Channel</string>
     <string name="setting_range">Range setting</string>

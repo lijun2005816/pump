@@ -251,8 +251,8 @@ public class FragmentMine extends Fragment {
     private void initPump(){
         Objects.requireNonNull(getContext());
         String[] tempRange = getContext().getResources().getStringArray(R.array.temp_range);
-        ArrayAdapter<String> aa = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, tempRange);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> aa = new ArrayAdapter<>(getContext(), R.layout.spinner_item_cust, R.id.tv_spinner_item_cust, tempRange);
+        aa.setDropDownViewResource(R.layout.spinner_dropdown_item_cust);
         String tempDefault = getContext().getResources().getString(R.string.temp_range_default);
         String tempLow = getContext().getResources().getString(R.string.temp_warning_low_default);
         String tempHigh = getContext().getResources().getString(R.string.temp_warning_high_default);
@@ -265,8 +265,8 @@ public class FragmentMine extends Fragment {
             mTvMineChRange[i][3].setText(tempUnit);
         }
         String[] vibRange = getContext().getResources().getStringArray(R.array.vib_range);
-        ArrayAdapter<String> bb = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, vibRange);
-        bb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> bb = new ArrayAdapter<>(getContext(), R.layout.spinner_item_cust, R.id.tv_spinner_item_cust, vibRange);
+        bb.setDropDownViewResource(R.layout.spinner_dropdown_item_cust);
         String vibDefault = getContext().getResources().getString(R.string.vib_range_default);
         String vibLow = getContext().getResources().getString(R.string.vib_warning_low_default);
         String vibHigh = getContext().getResources().getString(R.string.vib_warning_high_default);
@@ -279,8 +279,8 @@ public class FragmentMine extends Fragment {
             mTvMineChRange[i][3].setText(vibUnit);
         }
         String[] pressRange = getContext().getResources().getStringArray(R.array.press_range);
-        ArrayAdapter<String> cc = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, pressRange);
-        cc.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> cc = new ArrayAdapter<>(getContext(), R.layout.spinner_item_cust, R.id.tv_spinner_item_cust, pressRange);
+        cc.setDropDownViewResource(R.layout.spinner_dropdown_item_cust);
         String pressDefault = getContext().getResources().getString(R.string.press_range_default);
         String pressLow = getContext().getResources().getString(R.string.press_warning_low_default);
         String pressHigh = getContext().getResources().getString(R.string.press_warning_high_default);
@@ -293,8 +293,8 @@ public class FragmentMine extends Fragment {
             mTvMineChRange[i][3].setText(pressUnit);
         }
         String[] volumeRange = getContext().getResources().getStringArray(R.array.volume_range);
-        ArrayAdapter<String> dd = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, volumeRange);
-        dd.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> dd = new ArrayAdapter<>(getContext(), R.layout.spinner_item_cust, R.id.tv_spinner_item_cust, volumeRange);
+        dd.setDropDownViewResource(R.layout.spinner_dropdown_item_cust);
         String volumeDefault = getContext().getResources().getString(R.string.volume_range_default);
         String volumeLow = getContext().getResources().getString(R.string.volume_warning_low_default);
         String volumeHigh = getContext().getResources().getString(R.string.volume_warning_high_default);
@@ -316,8 +316,8 @@ public class FragmentMine extends Fragment {
     private void initMotor(){
         Objects.requireNonNull(getContext());
         String[] tempRange = getContext().getResources().getStringArray(R.array.temp_range);
-        ArrayAdapter<String> aa = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, tempRange);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> aa = new ArrayAdapter<>(getContext(), R.layout.spinner_item_cust, R.id.tv_spinner_item_cust, tempRange);
+        aa.setDropDownViewResource(R.layout.spinner_dropdown_item_cust);
         String tempDefault = getContext().getResources().getString(R.string.temp_range_default);
         String tempLow = getContext().getResources().getString(R.string.temp_warning_low_default);
         String tempHigh = getContext().getResources().getString(R.string.temp_warning_high_default);
@@ -337,8 +337,8 @@ public class FragmentMine extends Fragment {
             mTvMineChRange[i][3].setText(tempUnit);
         }
         String[] vibRange = getContext().getResources().getStringArray(R.array.vib_range);
-        ArrayAdapter<String> bb = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, vibRange);
-        bb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> bb = new ArrayAdapter<>(getContext(), R.layout.spinner_item_cust, R.id.tv_spinner_item_cust, vibRange);
+        bb.setDropDownViewResource(R.layout.spinner_dropdown_item_cust);
         String vibDefault = getContext().getResources().getString(R.string.vib_range_default);
         String vibLow = getContext().getResources().getString(R.string.vib_warning_low_default);
         String vibHigh = getContext().getResources().getString(R.string.vib_warning_high_default);
