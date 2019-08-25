@@ -1,10 +1,13 @@
 package com.smartgreen.pump.fragment;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -63,15 +66,15 @@ public class FragmentData extends Fragment {
     private Button mBtnCurve;
     private Button mBtnSave;
     private Button mBtnHistory;
-    private TextView mTvTime;
-    private TextView mTvTempMotor;
-    private TextView mTvTempRound1;
-    private TextView mTvTempRound2;
-    private TextView mTvTempFix1;
-    private TextView mTvTempFix2;
-    private TextView mTvVibAms;
-    private TextView mTvPressOutput;
-    private TextView mTvVolumeWater;
+    private TextView mTvTimePump;
+    private TextView mTvPumpCh1;
+    private TextView mTvPumpCh2;
+    private TextView mTvPumpCh3;
+    private TextView mTvPumpCh4;
+    private TextView mTvPumpCh5;
+    private TextView mTvPumpCh6;
+    private TextView mTvPumpCh7;
+    private TextView mTvPumpCh8;
     private Boolean isForeGround;
     private LinearLayout mLlRealtime;
     private LinearLayout mLlCurve;
@@ -122,18 +125,17 @@ public class FragmentData extends Fragment {
         mBtnCurve = view.findViewById(R.id.btn_curve);
         mBtnSave = view.findViewById(R.id.btn_save);
         mBtnHistory = view.findViewById(R.id.btn_history);
-        mTvTime = view.findViewById(R.id.tv_data_time);
-        mTvTempMotor = view.findViewById(R.id.tv_temp_motor);
-        mTvTempRound1 = view.findViewById(R.id.tv_temp_round1);
-        mTvTempRound2 = view.findViewById(R.id.tv_temp_round2);
-        mTvTempFix1 = view.findViewById(R.id.tv_temp_fix1);
-        mTvTempFix2 = view.findViewById(R.id.tv_temp_fix2);
-        mTvVibAms = view.findViewById(R.id.tv_vib_ams);
-        mTvPressOutput = view.findViewById(R.id.tv_press_output);
-        mTvVolumeWater = view.findViewById(R.id.tv_volu_water);
+        mTvTimePump = view.findViewById(R.id.tv_time_pump);
+        mTvPumpCh1 = view.findViewById(R.id.tv_pump_ch1);
+        mTvPumpCh2 = view.findViewById(R.id.tv_pump_ch2);
+        mTvPumpCh3 = view.findViewById(R.id.tv_pump_ch3);
+        mTvPumpCh4 = view.findViewById(R.id.tv_pump_ch4);
+        mTvPumpCh5 = view.findViewById(R.id.tv_pump_ch5);
+        mTvPumpCh6 = view.findViewById(R.id.tv_pump_ch6);
+        mTvPumpCh7 = view.findViewById(R.id.tv_pump_ch7);
+        mTvPumpCh8 = view.findViewById(R.id.tv_pump_ch8);
         isForeGround = true;
-        mTvTime.setText(Util.getStringDateTime());
-        mLlRealtime = view.findViewById(R.id.ll_realtime);
+        mLlRealtime = view.findViewById(R.id.ll_realtime_pump);
         mLlCurve = view.findViewById(R.id.ll_curve);
         mLlSave = view.findViewById(R.id.ll_save);
         mLlHistory = view.findViewById(R.id.ll_history);
@@ -258,7 +260,7 @@ public class FragmentData extends Fragment {
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        isForeGround = !hidden;
+        //isForeGround = !hidden;
         if (!hidden) {
             Objects.requireNonNull(getContext());
             mTvDataPumpName.setText(Util.getPumpNameFromSP(getContext()));
@@ -267,45 +269,64 @@ public class FragmentData extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        isForeGround = true;
+        //isForeGround = true;
     }
     @Override
     public void onPause() {
         super.onPause();
-        isForeGround = false;
+        //isForeGround = false;
     }
     @Override
     public void onDestroy() {
-        isForeGround = false;
+        //isForeGround = false;
         super.onDestroy();
     }
     public void updateView(DeviceData data) {
+        Objects.requireNonNull(getContext());
         if (isForeGround) {
-            mTvTime.setText(String.format(Locale.CHINA, "%s", Util.strToDateTime(data.time)));
-            mTvTempMotor.setText(String.format(Locale.CHINA, "%s", data.ch0));
-            mTvTempRound1.setText(String.format(Locale.CHINA, "%s", data.ch1));
-            mTvTempRound2.setText(String.format(Locale.CHINA, "%s", data.ch2));
-            mTvTempFix1.setText(String.format(Locale.CHINA, "%s", data.ch3));
-            mTvTempFix2.setText(String.format(Locale.CHINA, "%s", data.ch4));
-            mTvVibAms.setText(String.format(Locale.CHINA, "%s", data.ch5));
-            mTvPressOutput.setText(String.format(Locale.CHINA, "%s", data.ch6));
-            mTvVolumeWater.setText(String.format(Locale.CHINA, "%s", data.ch7));
-            List<Float> temp = new ArrayList<>();
-            temp.add(data.ch0);
-            temp.add(data.ch1);
-            addEntry(mLineChartTemp, mLineDataTemp, temp, data.timestamp-mStartTime, temp.size());
-            List<Float> vib = new ArrayList<>();
-            vib.add(data.ch2);
-            vib.add(data.ch3);
-            vib.add(data.ch4);
-            vib.add(data.ch5);
-            addEntry(mLineChartVib, mLineDataVib, vib, data.timestamp-mStartTime, vib.size());
-            List<Float> press = new ArrayList<>();
-            press.add(data.ch6);
-            addEntry(mLineChartPress, mLineDataPress, press, data.timestamp-mStartTime, press.size());
-            List<Float> volume = new ArrayList<>();
-            volume.add(data.ch7);
-            addEntry(mLineChartVolume, mLineDataVolume, volume, data.timestamp-mStartTime, volume.size());
+            switch (Util.mDeviceType) {
+                case 1:
+                    mTvTimePump.setText(String.format(Locale.CHINA, "%s", Util.strToDateTime(data.time)));
+                    mTvPumpCh1.setText(String.format(Locale.CHINA, "%s", data.ch0));
+                    mTvPumpCh2.setText(String.format(Locale.CHINA, "%s", data.ch1));
+                    mTvPumpCh3.setText(String.format(Locale.CHINA, "%s", data.ch2));
+                    mTvPumpCh4.setText(String.format(Locale.CHINA, "%s", data.ch3));
+                    mTvPumpCh5.setText(String.format(Locale.CHINA, "%s", data.ch4));
+                    mTvPumpCh6.setText(String.format(Locale.CHINA, "%s", data.ch5));
+                    mTvPumpCh7.setText(String.format(Locale.CHINA, "%s", data.ch6));
+                    mTvPumpCh8.setText(String.format(Locale.CHINA, "%s", data.ch7));
+                    List<Float> temp = new ArrayList<>();
+                    temp.add(data.ch0);
+                    temp.add(data.ch1);
+                    addEntry(mLineChartTemp, mLineDataTemp, temp, data.timestamp - mStartTime, temp.size());
+                    List<Float> vib = new ArrayList<>();
+                    vib.add(data.ch2);
+                    vib.add(data.ch3);
+                    vib.add(data.ch4);
+                    vib.add(data.ch5);
+                    addEntry(mLineChartVib, mLineDataVib, vib, data.timestamp - mStartTime, vib.size());
+                    List<Float> press = new ArrayList<>();
+                    press.add(data.ch6);
+                    addEntry(mLineChartPress, mLineDataPress, press, data.timestamp - mStartTime, press.size());
+                    List<Float> volume = new ArrayList<>();
+                    volume.add(data.ch7);
+                    addEntry(mLineChartVolume, mLineDataVolume, volume, data.timestamp - mStartTime, volume.size());
+                  /*  if(data.ch0<Util.mChRangeWarning[0][2] || data.ch0 > Util.mChRangeWarning[0][3]) {
+                        NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+                        Notification notification = new Notification.Builder(getContext())
+                                .setContentTitle("水泵告警")
+                                .setContentText(String.format("通道%s超告警，上限：%s，上限：%s，当前值：%s，时间：%s"))
+                                .setWhen(System.currentTimeMillis())
+                                .setSmallIcon(R.mipmap.ic_launcher)
+                                .setLargeIcon(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.ic_launcher_foreground))
+                                .build();
+                        int notificationId = 1;
+                        notificationManager.notify(notificationId, notification);
+                    }*/
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             tx.commit();
         }
         Util.mDataCollect.mFragmentData = (FragmentData) fragments[1];
+        Util.mDataCollect.mFragmentService = (FragmentService) fragments[2];
         if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             return;
         }
@@ -141,16 +142,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (mIotManager != null) {
+/*        if (mIotManager != null) {
             mIotManager.unRegister();
-        }
+        }*/
     }
     @Override
     protected void onPause() {
         super.onPause();
-        if (mIotManager != null) {
+/*        if (mIotManager != null) {
             mIotManager.register();
-        }
+        }*/
     }
     @Override
     protected void onDestroy() {

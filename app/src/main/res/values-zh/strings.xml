@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">智能泵站</string>
-    <string name="title_data">数据</string>
+    <string name="title_data">水泵</string>
     <string name="title_home">首页</string>
     <string name="title_mine">我的</string>
-    <string name="title_service">客服</string>
+    <string name="title_service">电机</string>
     <string name="device_english">EQUIPMENT</string>
     <string name="water_english">WATER QUALITY</string>
     <string name="device">设备监测</string>
@@ -13,7 +13,7 @@
     <string name="energy_english">ENERGY</string>
     <string name="video">视频系统</string>
     <string name="video_english">VIDEO</string>
-    <string name="time_curr">12:00:03</string>
+    <string name="time_curr">12:00:00</string>
     <string name="date_curr">2018年02月16日</string>
     <string name="location_curr">上海A0001号泵站</string>
     <string name="data_motitor">实时监测</string>
@@ -131,4 +131,6 @@
     </string-array>
     <string-array name="device_list">
     </string-array>
+    <string name="motor_monitor">电机监控</string>
+    <string name="pump_monitor">水泵监控</string>
 </resources>

@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.smartgreen.pump.fragment.FragmentData;
+import com.smartgreen.pump.fragment.FragmentService;
 import com.smartgreen.pump.util.Util;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class DeviceDataCollect {
     private List<DeviceData> mDataList = new ArrayList<>();
     private List<DeviceData> mDataListShow = new ArrayList<>();
     public FragmentData mFragmentData = null;
+    public FragmentService mFragmentService = null;
     public DeviceDataCollect() {
     }
     public void add(DeviceData data) {
@@ -35,6 +37,9 @@ public class DeviceDataCollect {
         Log.i("DeviceDataCollect", jsonDDC);
         if(mFragmentData != null) {
             mFragmentData.updateView(Util.getDeviceDataScaled(data));
+        }
+        if (mFragmentService != null) {
+            mFragmentService.updateView(Util.getDeviceDataScaled(data));
         }
     }
 }

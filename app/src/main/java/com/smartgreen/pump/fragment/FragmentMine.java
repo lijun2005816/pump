@@ -10,7 +10,6 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -18,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.aliyun.alink.dm.api.DeviceInfo;
 import com.smartgreen.pump.MainActivity;
@@ -52,11 +52,10 @@ public class FragmentMine extends Fragment {
 
     private DeviceInfo mDeviceInfo;
     ArrayList<DeviceInfo> mDeviceInfoList = new ArrayList<>();
-    private int mDeviceInfoCount = 3;
+    private int mDeviceInfoCount = 2;
     private int[][] mTvDeviceInfoId = {
-            {R.id.tv_product1_key, R.id.tv_product1_secret, R.id.tv_device1_key, R.id.tv_device1_secret, R.id.btn_product1_key},
-            {R.id.tv_product2_key, R.id.tv_product2_secret, R.id.tv_device2_key, R.id.tv_device2_secret, R.id.btn_product2_key},
-            {R.id.tv_product3_key, R.id.tv_product3_secret, R.id.tv_device3_key, R.id.tv_device3_secret, R.id.btn_product3_key},
+            {R.id.tv_product1_key, R.id.tv_product1_secret, R.id.tv_device1_key, R.id.tv_device1_secret, R.id.btn_product1_key, R.id.tb_device1_type},
+            {R.id.tv_product2_key, R.id.tv_product2_secret, R.id.tv_device2_key, R.id.tv_device2_secret, R.id.btn_product2_key, R.id.tb_device2_type},
     };
     private int mTvDeviceInfoIndex = 0;
     private int mTvDeviceInfoLength = 4;
@@ -64,8 +63,11 @@ public class FragmentMine extends Fragment {
     private int mBtnDeviceInfoIndex = mTvDeviceInfoIndex + mTvDeviceInfoLength;
     private int mBtnDeviceInfoLength = 1;
     private RadioButton[][] mBtnDeviceCheck = new RadioButton[mDeviceInfoCount][mBtnDeviceInfoLength];
+    private int mTbDeviceInfoIndex = mBtnDeviceInfoIndex + mBtnDeviceInfoLength;
+    private int mTbDeviceInfoLength = 1;
+    private ToggleButton[][] mTbDeviceInfo = new ToggleButton[mDeviceInfoCount][mTbDeviceInfoLength];
 
-    private int mChCount = 8;
+    private int mChCount = 16;
     private int[][] mTvRangeWarningId = {
             {R.id.tv_ch1_range, R.id.tv_ch1_warning_low, R.id.tv_ch1_warning_high, R.id.tv_ch1_ok, R.id.sp_ch1_range, R.id.et_ch1_warning_low, R.id.et_ch1_warning_high, R.id.btn_ch1_range},
             {R.id.tv_ch2_range, R.id.tv_ch2_warning_low, R.id.tv_ch2_warning_high, R.id.tv_ch2_ok, R.id.sp_ch2_range, R.id.et_ch2_warning_low, R.id.et_ch2_warning_high, R.id.btn_ch2_range},
@@ -75,6 +77,14 @@ public class FragmentMine extends Fragment {
             {R.id.tv_ch6_range, R.id.tv_ch6_warning_low, R.id.tv_ch6_warning_high, R.id.tv_ch6_ok, R.id.sp_ch6_range, R.id.et_ch6_warning_low, R.id.et_ch6_warning_high, R.id.btn_ch6_range},
             {R.id.tv_ch7_range, R.id.tv_ch7_warning_low, R.id.tv_ch7_warning_high, R.id.tv_ch7_ok, R.id.sp_ch7_range, R.id.et_ch7_warning_low, R.id.et_ch7_warning_high, R.id.btn_ch7_range},
             {R.id.tv_ch8_range, R.id.tv_ch8_warning_low, R.id.tv_ch8_warning_high, R.id.tv_ch8_ok, R.id.sp_ch8_range, R.id.et_ch8_warning_low, R.id.et_ch8_warning_high, R.id.btn_ch8_range},
+            {R.id.tv_ch1_range_motor, R.id.tv_ch1_warning_low_motor, R.id.tv_ch1_warning_high_motor, R.id.tv_ch1_ok_motor, R.id.sp_ch1_range_motor, R.id.et_ch1_warning_low_motor, R.id.et_ch1_warning_high_motor, R.id.btn_ch1_range_motor},
+            {R.id.tv_ch2_range_motor, R.id.tv_ch2_warning_low_motor, R.id.tv_ch2_warning_high_motor, R.id.tv_ch2_ok_motor, R.id.sp_ch2_range_motor, R.id.et_ch2_warning_low_motor, R.id.et_ch2_warning_high_motor, R.id.btn_ch2_range_motor},
+            {R.id.tv_ch3_range_motor, R.id.tv_ch3_warning_low_motor, R.id.tv_ch3_warning_high_motor, R.id.tv_ch3_ok_motor, R.id.sp_ch3_range_motor, R.id.et_ch3_warning_low_motor, R.id.et_ch3_warning_high_motor, R.id.btn_ch3_range_motor},
+            {R.id.tv_ch4_range_motor, R.id.tv_ch4_warning_low_motor, R.id.tv_ch4_warning_high_motor, R.id.tv_ch4_ok_motor, R.id.sp_ch4_range_motor, R.id.et_ch4_warning_low_motor, R.id.et_ch4_warning_high_motor, R.id.btn_ch4_range_motor},
+            {R.id.tv_ch5_range_motor, R.id.tv_ch5_warning_low_motor, R.id.tv_ch5_warning_high_motor, R.id.tv_ch5_ok_motor, R.id.sp_ch5_range_motor, R.id.et_ch5_warning_low_motor, R.id.et_ch5_warning_high_motor, R.id.btn_ch5_range_motor},
+            {R.id.tv_ch6_range_motor, R.id.tv_ch6_warning_low_motor, R.id.tv_ch6_warning_high_motor, R.id.tv_ch6_ok_motor, R.id.sp_ch6_range_motor, R.id.et_ch6_warning_low_motor, R.id.et_ch6_warning_high_motor, R.id.btn_ch6_range_motor},
+            {R.id.tv_ch7_range_motor, R.id.tv_ch7_warning_low_motor, R.id.tv_ch7_warning_high_motor, R.id.tv_ch7_ok_motor, R.id.sp_ch7_range_motor, R.id.et_ch7_warning_low_motor, R.id.et_ch7_warning_high_motor, R.id.btn_ch7_range_motor},
+            {R.id.tv_ch8_range_motor, R.id.tv_ch8_warning_low_motor, R.id.tv_ch8_warning_high_motor, R.id.tv_ch8_ok_motor, R.id.sp_ch8_range_motor, R.id.et_ch8_warning_low_motor, R.id.et_ch8_warning_high_motor, R.id.btn_ch8_range_motor},
     };
     private int mTvChIndex = 0;
     private int mTvChLength = 4;
@@ -88,6 +98,19 @@ public class FragmentMine extends Fragment {
     private int mBtnChIndex = mEtChIndex + mEtChLength;
     private int mBtnChLength = 1;
     private Button[][] mBtnMineChRange = new Button[mChCount][mBtnChLength];
+
+    private ImageView mIvAboutApp;
+    private LinearLayout mLlAboutAppDetail;
+    private Boolean mIvAboutAppStatus;
+    private ImageView mIvAboutUs;
+    private LinearLayout mLlAboutUsDetail;
+    private Boolean mIvAboutUsStatus;
+    private ImageView mIvMore;
+    private LinearLayout mLlMoreDetail;
+    private Boolean mIvMoreStatus;
+    private ImageView mIvGuide;
+    private LinearLayout mLlGuideDetail;
+    private Boolean mIvGuideStatus;
 
     @Nullable
     @Override
@@ -136,10 +159,11 @@ public class FragmentMine extends Fragment {
             for(int j = mTvDeviceInfoIndex; j < mTvDeviceInfoIndex + mTvDeviceInfoLength; j++) {
                 mTvDeviceInfo[i][j-mTvDeviceInfoIndex] = view.findViewById(mTvDeviceInfoId[i][j]);
             }
-        }
-        for(int i = 0; i < mDeviceInfoCount; i++) {
             for (int j = mBtnDeviceInfoIndex; j < mBtnDeviceInfoIndex +mBtnDeviceInfoLength; j++) {
                 mBtnDeviceCheck[i][j-mBtnDeviceInfoIndex] = view.findViewById(mTvDeviceInfoId[i][j]);
+            }
+            for (int j = mTbDeviceInfoIndex; j < mTbDeviceInfoIndex +mTbDeviceInfoLength; j++) {
+                mTbDeviceInfo[i][j-mTbDeviceInfoIndex] = view.findViewById(mTvDeviceInfoId[i][j]);
             }
         }
 
@@ -147,32 +171,37 @@ public class FragmentMine extends Fragment {
             for(int j = mTvChIndex; j< mTvChIndex + mTvChLength; j++) {
                 mTvMineChRange[i][j-mTvChIndex] = view.findViewById(mTvRangeWarningId[i][j]);
             }
-        }
-        for(int i=0;i<mChCount;i++) {
             for(int j = mSpChIndex; j< mSpChIndex + mSpChLength; j++) {
                 mSpMineChRange[i][j-mSpChIndex] = view.findViewById(mTvRangeWarningId[i][j]);
             }
-        }
-        for(int i=0;i<mChCount;i++) {
             for(int j = mEtChIndex; j< mEtChIndex + mEtChLength; j++) {
                 mEtMineChWarning[i][j-mEtChIndex] = view.findViewById(mTvRangeWarningId[i][j]);
             }
-        }
-        for(int i=0;i<mChCount;i++) {
             for(int j = mBtnChIndex; j< mBtnChIndex + mBtnChLength; j++) {
                 mBtnMineChRange[i][j-mBtnChIndex] = view.findViewById(mTvRangeWarningId[i][j]);
             }
-        }
-        for(int i = 0; i< mChCount; i++) {
             String range = mTvMineChRange[i][0].getText().toString();
             String warningLow = mTvMineChRange[i][1].getText().toString();
             String warningHigh = mTvMineChRange[i][2].getText().toString();
             Util.setChRangeWarning(i, range, warningLow, warningHigh);
         }
+        mIvAboutApp = view.findViewById(R.id.iv_service_about_app);
+        mLlAboutAppDetail = view.findViewById(R.id.ll_service_about_app_detail);
+        mIvAboutAppStatus = false;
+        mIvAboutUs = view.findViewById(R.id.iv_service_about_us);
+        mLlAboutUsDetail = view.findViewById(R.id.ll_service_about_us_detail);
+        mIvAboutUsStatus = false;
+        mIvMore = view.findViewById(R.id.iv_service_more);
+        mLlMoreDetail = view.findViewById(R.id.ll_service_more_detail);
+        mIvMoreStatus = false;
+        mIvGuide = view.findViewById(R.id.iv_service_guide);
+        mLlGuideDetail = view.findViewById(R.id.ll_service_guide_detail);
+        mIvGuideStatus = false;
     }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mTvMineWelcome.setOnClickListener(mClickEvent);
         mBtnMineLogin.setOnClickListener(mClickEvent);
         mIvMyInfo.setOnClickListener(mClickEvent);
         mIvDevice.setOnClickListener(mClickEvent);
@@ -188,12 +217,14 @@ public class FragmentMine extends Fragment {
             for(int j = mTvChIndex; j< mTvChIndex + mTvChLength; j++) {
                 mTvMineChRange[i][j-mTvChIndex].setOnClickListener(mClickEvent);
             }
-        }
-        for(int i=0;i<mChCount;i++) {
             for(int j = mBtnChIndex; j< mBtnChIndex + mBtnChLength; j++) {
                 mBtnMineChRange[i][j-mBtnChIndex].setOnClickListener(mClickEvent);
             }
         }
+        mIvAboutApp.setOnClickListener(mClickEvent);
+        mIvAboutUs.setOnClickListener(mClickEvent);
+        mIvMore.setOnClickListener(mClickEvent);
+        mIvGuide.setOnClickListener(mClickEvent);
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -241,122 +272,19 @@ public class FragmentMine extends Fragment {
                     }
                     mDeviceInfo = mDeviceInfoList.get(0);
                     mBtnDeviceCheck[0][0].setChecked(true);
-                    initPump();
+                    //initPump();
                     Util.setDeviceInfoToSP(getContext(), mDeviceInfo);
+                    boolean type = mTbDeviceInfo[0][0].isChecked();
+                    if(type) {
+                        Util.mDeviceType = 1;
+                    } else {
+                        Util.mDeviceType = 2;
+                    }
                     new Thread(mIotStartRunnable).start();
                 }
             });
         }
     };
-    private void initPump(){
-        Objects.requireNonNull(getContext());
-        String[] tempRange = getContext().getResources().getStringArray(R.array.temp_range);
-        ArrayAdapter<String> aa = new ArrayAdapter<>(getContext(), R.layout.spinner_item_cust, R.id.tv_spinner_item_cust, tempRange);
-        aa.setDropDownViewResource(R.layout.spinner_dropdown_item_cust);
-        String tempDefault = getContext().getResources().getString(R.string.temp_range_default);
-        String tempLow = getContext().getResources().getString(R.string.temp_warning_low_default);
-        String tempHigh = getContext().getResources().getString(R.string.temp_warning_high_default);
-        String tempUnit = getContext().getResources().getString(R.string.temp_unit);
-        for(int i=0;i<2;i++) {
-            mSpMineChRange[i][0].setAdapter(aa);
-            mTvMineChRange[i][0].setText(tempDefault);
-            mTvMineChRange[i][1].setText(tempLow);
-            mTvMineChRange[i][2].setText(tempHigh);
-            mTvMineChRange[i][3].setText(tempUnit);
-        }
-        String[] vibRange = getContext().getResources().getStringArray(R.array.vib_range);
-        ArrayAdapter<String> bb = new ArrayAdapter<>(getContext(), R.layout.spinner_item_cust, R.id.tv_spinner_item_cust, vibRange);
-        bb.setDropDownViewResource(R.layout.spinner_dropdown_item_cust);
-        String vibDefault = getContext().getResources().getString(R.string.vib_range_default);
-        String vibLow = getContext().getResources().getString(R.string.vib_warning_low_default);
-        String vibHigh = getContext().getResources().getString(R.string.vib_warning_high_default);
-        String vibUnit = getContext().getResources().getString(R.string.vib_unit);
-        for(int i=2;i<6;i++) {
-            mSpMineChRange[i][0].setAdapter(bb);
-            mTvMineChRange[i][0].setText(vibDefault);
-            mTvMineChRange[i][1].setText(vibLow);
-            mTvMineChRange[i][2].setText(vibHigh);
-            mTvMineChRange[i][3].setText(vibUnit);
-        }
-        String[] pressRange = getContext().getResources().getStringArray(R.array.press_range);
-        ArrayAdapter<String> cc = new ArrayAdapter<>(getContext(), R.layout.spinner_item_cust, R.id.tv_spinner_item_cust, pressRange);
-        cc.setDropDownViewResource(R.layout.spinner_dropdown_item_cust);
-        String pressDefault = getContext().getResources().getString(R.string.press_range_default);
-        String pressLow = getContext().getResources().getString(R.string.press_warning_low_default);
-        String pressHigh = getContext().getResources().getString(R.string.press_warning_high_default);
-        String pressUnit = getContext().getResources().getString(R.string.press_unit);
-        for(int i=6;i<7;i++) {
-            mSpMineChRange[i][0].setAdapter(cc);
-            mTvMineChRange[i][0].setText(pressDefault);
-            mTvMineChRange[i][1].setText(pressLow);
-            mTvMineChRange[i][2].setText(pressHigh);
-            mTvMineChRange[i][3].setText(pressUnit);
-        }
-        String[] volumeRange = getContext().getResources().getStringArray(R.array.volume_range);
-        ArrayAdapter<String> dd = new ArrayAdapter<>(getContext(), R.layout.spinner_item_cust, R.id.tv_spinner_item_cust, volumeRange);
-        dd.setDropDownViewResource(R.layout.spinner_dropdown_item_cust);
-        String volumeDefault = getContext().getResources().getString(R.string.volume_range_default);
-        String volumeLow = getContext().getResources().getString(R.string.volume_warning_low_default);
-        String volumeHigh = getContext().getResources().getString(R.string.volume_warning_high_default);
-        String volumeUnit = getContext().getResources().getString(R.string.volume_unit);
-        for(int i=7;i<8;i++) {
-            mSpMineChRange[i][0].setAdapter(dd);
-            mTvMineChRange[i][0].setText(volumeDefault);
-            mTvMineChRange[i][1].setText(volumeLow);
-            mTvMineChRange[i][2].setText(volumeHigh);
-            mTvMineChRange[i][3].setText(volumeUnit);
-        }
-        for(int i = 0; i< mChCount; i++) {
-            String range = mTvMineChRange[i][0].getText().toString();
-            String warningLow = mTvMineChRange[i][1].getText().toString();
-            String warningHigh = mTvMineChRange[i][2].getText().toString();
-            Util.setChRangeWarning(i, range, warningLow, warningHigh);
-        }
-    }
-    private void initMotor(){
-        Objects.requireNonNull(getContext());
-        String[] tempRange = getContext().getResources().getStringArray(R.array.temp_range);
-        ArrayAdapter<String> aa = new ArrayAdapter<>(getContext(), R.layout.spinner_item_cust, R.id.tv_spinner_item_cust, tempRange);
-        aa.setDropDownViewResource(R.layout.spinner_dropdown_item_cust);
-        String tempDefault = getContext().getResources().getString(R.string.temp_range_default);
-        String tempLow = getContext().getResources().getString(R.string.temp_warning_low_default);
-        String tempHigh = getContext().getResources().getString(R.string.temp_warning_high_default);
-        String tempUnit = getContext().getResources().getString(R.string.temp_unit);
-        for(int i=0;i<2;i++) {
-            mSpMineChRange[i][0].setAdapter(aa);
-            mTvMineChRange[i][0].setText(tempDefault);
-            mTvMineChRange[i][1].setText(tempLow);
-            mTvMineChRange[i][2].setText(tempHigh);
-            mTvMineChRange[i][3].setText(tempUnit);
-        }
-        for(int i=6;i<8;i++) {
-            mSpMineChRange[i][0].setAdapter(aa);
-            mTvMineChRange[i][0].setText(tempDefault);
-            mTvMineChRange[i][1].setText(tempLow);
-            mTvMineChRange[i][2].setText(tempHigh);
-            mTvMineChRange[i][3].setText(tempUnit);
-        }
-        String[] vibRange = getContext().getResources().getStringArray(R.array.vib_range);
-        ArrayAdapter<String> bb = new ArrayAdapter<>(getContext(), R.layout.spinner_item_cust, R.id.tv_spinner_item_cust, vibRange);
-        bb.setDropDownViewResource(R.layout.spinner_dropdown_item_cust);
-        String vibDefault = getContext().getResources().getString(R.string.vib_range_default);
-        String vibLow = getContext().getResources().getString(R.string.vib_warning_low_default);
-        String vibHigh = getContext().getResources().getString(R.string.vib_warning_high_default);
-        String vibUnit = getContext().getResources().getString(R.string.vib_unit);
-        for(int i=2;i<6;i++) {
-            mSpMineChRange[i][0].setAdapter(bb);
-            mTvMineChRange[i][0].setText(vibDefault);
-            mTvMineChRange[i][1].setText(vibLow);
-            mTvMineChRange[i][2].setText(vibHigh);
-            mTvMineChRange[i][3].setText(vibUnit);
-        }
-        for(int i = 0; i< mChCount; i++) {
-            String range = mTvMineChRange[i][0].getText().toString();
-            String warningLow = mTvMineChRange[i][1].getText().toString();
-            String warningHigh = mTvMineChRange[i][2].getText().toString();
-            Util.setChRangeWarning(i, range, warningLow, warningHigh);
-        }
-    }
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
@@ -375,6 +303,12 @@ public class FragmentMine extends Fragment {
             Drawable drawOpen = ContextCompat.getDrawable(getContext(), R.drawable.mine_detail_open);
             int id = v.getId();
             switch (id) {
+                case R.id.tv_mine_welcome:
+                    mUserInfo = null;
+                    Util.setUserInfoToSP(getContext(), mUserInfo);
+                    mTvMineWelcome.setVisibility(View.GONE);
+                    mBtnMineLogin.setVisibility(View.VISIBLE);
+                    break;
                 case R.id.tv_mine_pump:
                     mTvMinePump.setVisibility(View.GONE);
                     mEtMinePump.setVisibility(View.VISIBLE);
@@ -417,14 +351,19 @@ public class FragmentMine extends Fragment {
 
                 case R.id.btn_product1_key:
                     mBtnDeviceSettingClick(R.id.btn_product1_key);
-                    //initPump();
+                    if(mTbDeviceInfo[0][0].isChecked()) {
+                        Util.mDeviceType = 1;
+                    } else {
+                        Util.mDeviceType = 2;
+                    }
                     break;
                 case R.id.btn_product2_key:
                     mBtnDeviceSettingClick(R.id.btn_product2_key);
-                    //initMotor();
-                    break;
-                case R.id.btn_product3_key:
-                    mBtnDeviceSettingClick(R.id.btn_product3_key);
+                    if(mTbDeviceInfo[1][0].isChecked()) {
+                        Util.mDeviceType = 1;
+                    } else {
+                        Util.mDeviceType = 2;
+                    }
                     break;
 
                 case R.id.tv_ch1_range:
@@ -531,6 +470,153 @@ public class FragmentMine extends Fragment {
                     mBtnRangeWarningClick(R.id.btn_ch8_range);
                     break;
 
+                case R.id.tv_ch1_range_motor:
+                    mTvRangeClick(R.id.tv_ch1_range_motor);
+                    break;
+                case R.id.tv_ch1_warning_low_motor:
+                    mTvWarningLowClick(R.id.tv_ch1_warning_low_motor);
+                    break;
+                case R.id.tv_ch1_warning_high_motor:
+                    mTvWarningHighClick(R.id.tv_ch1_warning_high_motor);
+                    break;
+                case R.id.btn_ch1_range_motor:
+                    mBtnRangeWarningClick(R.id.btn_ch1_range_motor);
+                    break;
+
+                case R.id.tv_ch2_range_motor:
+                    mTvRangeClick(R.id.tv_ch2_range_motor);
+                    break;
+                case R.id.tv_ch2_warning_low_motor:
+                    mTvWarningLowClick(R.id.tv_ch2_warning_low_motor);
+                    break;
+                case R.id.tv_ch2_warning_high_motor:
+                    mTvWarningHighClick(R.id.tv_ch2_warning_high_motor);
+                    break;
+                case R.id.btn_ch2_range_motor:
+                    mBtnRangeWarningClick(R.id.btn_ch2_range_motor);
+                    break;
+
+                case R.id.tv_ch3_range_motor:
+                    mTvRangeClick(R.id.tv_ch3_range_motor);
+                    break;
+                case R.id.tv_ch3_warning_low_motor:
+                    mTvWarningLowClick(R.id.tv_ch3_warning_low_motor);
+                    break;
+                case R.id.tv_ch3_warning_high_motor:
+                    mTvWarningHighClick(R.id.tv_ch3_warning_high_motor);
+                    break;
+                case R.id.btn_ch3_range_motor:
+                    mBtnRangeWarningClick(R.id.btn_ch3_range_motor);
+                    break;
+
+                case R.id.tv_ch4_range_motor:
+                    mTvRangeClick(R.id.tv_ch4_range_motor);
+                    break;
+                case R.id.tv_ch4_warning_low_motor:
+                    mTvWarningLowClick(R.id.tv_ch4_warning_low_motor);
+                    break;
+                case R.id.tv_ch4_warning_high_motor:
+                    mTvWarningHighClick(R.id.tv_ch4_warning_high_motor);
+                    break;
+                case R.id.btn_ch4_range_motor:
+                    mBtnRangeWarningClick(R.id.btn_ch4_range_motor);
+                    break;
+
+                case R.id.tv_ch5_range_motor:
+                    mTvRangeClick(R.id.tv_ch5_range_motor);
+                    break;
+                case R.id.tv_ch5_warning_low_motor:
+                    mTvWarningLowClick(R.id.tv_ch5_warning_low_motor);
+                    break;
+                case R.id.tv_ch5_warning_high_motor:
+                    mTvWarningHighClick(R.id.tv_ch5_warning_high_motor);
+                    break;
+                case R.id.btn_ch5_range_motor:
+                    mBtnRangeWarningClick(R.id.btn_ch5_range_motor);
+                    break;
+
+                case R.id.tv_ch6_range_motor:
+                    mTvRangeClick(R.id.tv_ch6_range_motor);
+                    break;
+                case R.id.tv_ch6_warning_low_motor:
+                    mTvWarningLowClick(R.id.tv_ch6_warning_low_motor);
+                    break;
+                case R.id.tv_ch6_warning_high_motor:
+                    mTvWarningHighClick(R.id.tv_ch6_warning_high_motor);
+                    break;
+                case R.id.btn_ch6_range_motor:
+                    mBtnRangeWarningClick(R.id.btn_ch6_range_motor);
+                    break;
+
+                case R.id.tv_ch7_range_motor:
+                    mTvRangeClick(R.id.tv_ch7_range_motor);
+                    break;
+                case R.id.tv_ch7_warning_low_motor:
+                    mTvWarningLowClick(R.id.tv_ch7_warning_low_motor);
+                    break;
+                case R.id.tv_ch7_warning_high_motor:
+                    mTvWarningHighClick(R.id.tv_ch7_warning_high_motor);
+                    break;
+                case R.id.btn_ch7_range_motor:
+                    mBtnRangeWarningClick(R.id.btn_ch7_range_motor);
+                    break;
+
+                case R.id.tv_ch8_range_motor:
+                    mTvRangeClick(R.id.tv_ch8_range_motor);
+                    break;
+                case R.id.tv_ch8_warning_low_motor:
+                    mTvWarningLowClick(R.id.tv_ch8_warning_low_motor);
+                    break;
+                case R.id.tv_ch8_warning_high_motor:
+                    mTvWarningHighClick(R.id.tv_ch8_warning_high_motor);
+                    break;
+                case R.id.btn_ch8_range_motor:
+                    mBtnRangeWarningClick(R.id.btn_ch8_range_motor);
+                    break;
+                case R.id.iv_service_guide:
+                    if (mIvGuideStatus) {
+                        mIvGuide.setImageDrawable(drawClose);
+                        mIvGuideStatus = false;
+                        mLlGuideDetail.setVisibility(View.GONE);
+                    } else {
+                        mIvGuide.setImageDrawable(drawOpen);
+                        mIvGuideStatus = true;
+                        mLlGuideDetail.setVisibility(View.VISIBLE);
+                    }
+                    break;
+                case R.id.iv_service_more:
+                    if (mIvMoreStatus) {
+                        mIvMore.setImageDrawable(drawClose);
+                        mIvMoreStatus = false;
+                        mLlMoreDetail.setVisibility(View.GONE);
+                    } else {
+                        mIvMore.setImageDrawable(drawOpen);
+                        mIvMoreStatus = true;
+                        mLlMoreDetail.setVisibility(View.VISIBLE);
+                    }
+                    break;
+                case R.id.iv_service_about_us:
+                    if (mIvAboutUsStatus) {
+                        mIvAboutUs.setImageDrawable(drawClose);
+                        mIvAboutUsStatus = false;
+                        mLlAboutUsDetail.setVisibility(View.GONE);
+                    } else {
+                        mIvAboutUs.setImageDrawable(drawOpen);
+                        mIvAboutUsStatus = true;
+                        mLlAboutUsDetail.setVisibility(View.VISIBLE);
+                    }
+                    break;
+                case R.id.iv_service_about_app:
+                    if (mIvAboutAppStatus) {
+                        mIvAboutApp.setImageDrawable(drawClose);
+                        mIvAboutAppStatus = false;
+                        mLlAboutAppDetail.setVisibility(View.GONE);
+                    } else {
+                        mIvAboutApp.setImageDrawable(drawOpen);
+                        mIvAboutAppStatus = true;
+                        mLlAboutAppDetail.setVisibility(View.VISIBLE);
+                    }
+                    break;
                 default:
                     break;
             }
@@ -635,7 +721,18 @@ public class FragmentMine extends Fragment {
         Objects.requireNonNull(getActivity());
         MainActivity activity = (MainActivity) getActivity();
         if (activity.mIotManager != null) {
-            String cmd = String.format("{'cmd':'cpp%s[%s][%s]'}", index, Util.mChRangeWarning[index][4], Util.mChRangeWarning[index][5]);
+            int chIndex = 0;
+            switch (Util.mDeviceType) {
+                case 1:
+                    chIndex = index;
+                    break;
+                case 2:
+                    chIndex = index - 8;
+                    break;
+                default:
+                    break;
+            }
+            String cmd = String.format("{'cmd':'cpp%s[%s][%s]'}", chIndex, Util.mChRangeWarning[index][4], Util.mChRangeWarning[index][5]);
             activity.mIotManager.publish(cmd);
         }
     }

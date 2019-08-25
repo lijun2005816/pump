@@ -15,27 +15,29 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.smartgreen.pump.R;
+import com.smartgreen.pump.model.DeviceData;
 import com.smartgreen.pump.util.Util;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class FragmentService extends Fragment {
     private TextView mTvServiceDate;
     private int mDelayMillis = 60000;
     private Handler handlerRepeat = new Handler();
-    private ImageView mIvAboutApp;
-    private LinearLayout mLlAboutAppDetail;
-    private Boolean mIvAboutAppStatus;
-    private ImageView mIvAboutUs;
-    private LinearLayout mLlAboutUsDetail;
-    private Boolean mIvAboutUsStatus;
-    private ImageView mIvMore;
-    private LinearLayout mLlMoreDetail;
-    private Boolean mIvMoreStatus;
-    private ImageView mIvGuide;
-    private LinearLayout mLlGuideDetail;
-    private Boolean mIvGuideStatus;
     private TextView mTvServicePumpName;
+    private Boolean isForeGround = true;
+    private TextView mTvTimeMotor;
+    private TextView mTvMotorCh1;
+    private TextView mTvMotorCh2;
+    private TextView mTvMotorCh3;
+    private TextView mTvMotorCh4;
+    private TextView mTvMotorCh5;
+    private TextView mTvMotorCh6;
+    private TextView mTvMotorCh7;
+    private TextView mTvMotorCh8;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,87 +50,49 @@ public class FragmentService extends Fragment {
         mTvServiceDate = view.findViewById(R.id.tv_service_date);
         mTvServiceDate.setText(Util.getStringDateShort());
         handlerRepeat.postDelayed(runnableRepeat, mDelayMillis);
-        mIvAboutApp = view.findViewById(R.id.iv_service_about_app);
-        mLlAboutAppDetail = view.findViewById(R.id.ll_service_about_app_detail);
-        mIvAboutAppStatus = false;
-        mIvAboutUs = view.findViewById(R.id.iv_service_about_us);
-        mLlAboutUsDetail = view.findViewById(R.id.ll_service_about_us_detail);
-        mIvAboutUsStatus = false;
-        mIvMore = view.findViewById(R.id.iv_service_more);
-        mLlMoreDetail = view.findViewById(R.id.ll_service_more_detail);
-        mIvMoreStatus = false;
-        mIvGuide = view.findViewById(R.id.iv_service_guide);
-        mLlGuideDetail = view.findViewById(R.id.ll_service_guide_detail);
-        mIvGuideStatus = false;
-        mTvServicePumpName = view.findViewById(R.id.tv_service_pump_name);
         Objects.requireNonNull(getContext());
+        mTvServicePumpName = view.findViewById(R.id.tv_service_pump_name);
         mTvServicePumpName.setText(Util.getPumpNameFromSP(getContext()));
+        mTvTimeMotor = view.findViewById(R.id.tv_time_motor);
+        mTvMotorCh1 = view.findViewById(R.id.tv_motor_ch1);
+        mTvMotorCh2 = view.findViewById(R.id.tv_motor_ch2);
+        mTvMotorCh3 = view.findViewById(R.id.tv_motor_ch3);
+        mTvMotorCh4 = view.findViewById(R.id.tv_motor_ch4);
+        mTvMotorCh5 = view.findViewById(R.id.tv_motor_ch5);
+        mTvMotorCh6 = view.findViewById(R.id.tv_motor_ch6);
+        mTvMotorCh7 = view.findViewById(R.id.tv_motor_ch7);
+        mTvMotorCh8 = view.findViewById(R.id.tv_motor_ch8);
     }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mIvAboutApp.setOnClickListener(mClickEvent);
-        mIvAboutUs.setOnClickListener(mClickEvent);
-        mIvMore.setOnClickListener(mClickEvent);
-        mIvGuide.setOnClickListener(mClickEvent);
     }
     public View.OnClickListener mClickEvent = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Objects.requireNonNull(getContext());
-            Drawable drawClose = ContextCompat.getDrawable(getContext(), R.drawable.mine_detail);
-            Drawable drawOpen = ContextCompat.getDrawable(getContext(), R.drawable.mine_detail_open);
-            int id = v.getId();
-            switch (id) {
-                case R.id.iv_service_guide:
-                    if (mIvGuideStatus) {
-                        mIvGuide.setImageDrawable(drawClose);
-                        mIvGuideStatus = false;
-                        mLlGuideDetail.setVisibility(View.GONE);
-                    } else {
-                        mIvGuide.setImageDrawable(drawOpen);
-                        mIvGuideStatus = true;
-                        mLlGuideDetail.setVisibility(View.VISIBLE);
-                    }
+        }
+    };
+    public void updateView(DeviceData data) {
+        Objects.requireNonNull(getContext());
+        if (isForeGround) {
+            switch (Util.mDeviceType) {
+                case 2:
+                    mTvTimeMotor.setText(String.format(Locale.CHINA, "%s", Util.strToDateTime(data.time)));
+                    mTvMotorCh1.setText(String.format(Locale.CHINA, "%s", data.ch0));
+                    mTvMotorCh2.setText(String.format(Locale.CHINA, "%s", data.ch1));
+                    mTvMotorCh3.setText(String.format(Locale.CHINA, "%s", data.ch2));
+                    mTvMotorCh4.setText(String.format(Locale.CHINA, "%s", data.ch3));
+                    mTvMotorCh5.setText(String.format(Locale.CHINA, "%s", data.ch4));
+                    mTvMotorCh6.setText(String.format(Locale.CHINA, "%s", data.ch5));
+                    mTvMotorCh7.setText(String.format(Locale.CHINA, "%s", data.ch6));
+                    mTvMotorCh8.setText(String.format(Locale.CHINA, "%s", data.ch7));
                     break;
-                case R.id.iv_service_more:
-                    if (mIvMoreStatus) {
-                        mIvMore.setImageDrawable(drawClose);
-                        mIvMoreStatus = false;
-                        mLlMoreDetail.setVisibility(View.GONE);
-                    } else {
-                        mIvMore.setImageDrawable(drawOpen);
-                        mIvMoreStatus = true;
-                        mLlMoreDetail.setVisibility(View.VISIBLE);
-                    }
-                    break;
-                case R.id.iv_service_about_us:
-                    if (mIvAboutUsStatus) {
-                        mIvAboutUs.setImageDrawable(drawClose);
-                        mIvAboutUsStatus = false;
-                        mLlAboutUsDetail.setVisibility(View.GONE);
-                    } else {
-                        mIvAboutUs.setImageDrawable(drawOpen);
-                        mIvAboutUsStatus = true;
-                        mLlAboutUsDetail.setVisibility(View.VISIBLE);
-                    }
-                    break;
-                case R.id.iv_service_about_app:
-                    if (mIvAboutAppStatus) {
-                        mIvAboutApp.setImageDrawable(drawClose);
-                        mIvAboutAppStatus = false;
-                        mLlAboutAppDetail.setVisibility(View.GONE);
-                    } else {
-                        mIvAboutApp.setImageDrawable(drawOpen);
-                        mIvAboutAppStatus = true;
-                        mLlAboutAppDetail.setVisibility(View.VISIBLE);
-                    }
-                    break;
+
                 default:
                     break;
             }
         }
-    };
+    }
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);

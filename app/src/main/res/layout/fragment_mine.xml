@@ -44,22 +44,11 @@
                     android:orientation="vertical"
                     android:padding="20dp">
 
-                    <Button
-                        android:id="@+id/btn_mine_login"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@color/colorGreenLogin"
-                        android:text="@string/mine_login"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold" />
-
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_horizontal|center_vertical"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center_horizontal|center_vertical"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
@@ -71,6 +60,26 @@
                             android:textColor="@android:color/white"
                             android:textStyle="bold"
                             android:visibility="gone" />
+
+                        <Button
+                            android:id="@+id/btn_mine_login"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@color/colorGreenLogin"
+                            android:text="@string/mine_login"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/tv_mine_pump"
@@ -490,7 +499,7 @@
                     android:layout_marginTop="2dp"
                     android:gravity="center_vertical"
                     android:orientation="vertical"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -540,6 +549,17 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="@string/device_key"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_device0_type"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center"
+                            android:text="@string/device_type"
                             android:textColor="@android:color/black"
                             android:textSize="14sp" />
 
@@ -600,7 +620,7 @@
                             android:ems="10"
                             android:gravity="center"
                             android:importantForAutofill="no"
-                            android:singleLine="true"
+                            android:singleLine="false"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
@@ -633,7 +653,7 @@
                             android:ems="10"
                             android:gravity="center"
                             android:importantForAutofill="no"
-                            android:singleLine="true"
+                            android:singleLine="false"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             tools:targetApi="o" />
@@ -653,6 +673,15 @@
                             android:textSize="14sp"
                             android:visibility="gone"
                             tools:targetApi="o" />
+
+                        <ToggleButton
+                            android:id="@+id/tb_device1_type"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:checked="true"
+                            android:textOff="@string/motor"
+                            android:textOn="@string/pump" />
 
                         <RadioButton
                             android:id="@+id/btn_product1_key"
@@ -705,7 +734,7 @@
                             android:ems="10"
                             android:gravity="center"
                             android:importantForAutofill="no"
-                            android:singleLine="true"
+                            android:singleLine="false"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
@@ -738,7 +767,7 @@
                             android:ems="10"
                             android:gravity="center"
                             android:importantForAutofill="no"
-                            android:singleLine="true"
+                            android:singleLine="false"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             tools:targetApi="o" />
@@ -759,6 +788,15 @@
                             android:visibility="gone"
                             tools:targetApi="o" />
 
+                        <ToggleButton
+                            android:id="@+id/tb_device2_type"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:checked="false"
+                            android:textOff="@string/motor"
+                            android:textOn="@string/pump" />
+
                         <RadioButton
                             android:id="@+id/btn_product2_key"
                             android:layout_width="40dp"
@@ -776,105 +814,29 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="10dp"
                         android:background="@android:color/white"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:id="@+id/iv_device3_logo"
                             android:layout_width="3dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="10dp"
-                            android:contentDescription="@string/mine_login"
-                            app:srcCompat="@drawable/mine_login" />
+                            android:contentDescription="@string/mine_login" />
 
                         <TextView
-                            android:id="@+id/tv_device3_title"
-                            android:layout_width="40dp"
+                            android:id="@+id/tv_setting_pump"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_gravity="center"
+                            android:layout_gravity="center_horizontal|center_vertical"
                             android:layout_marginEnd="5dp"
-                            android:gravity="center"
-                            android:text="@string/device3"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/setting_pump"
                             android:textColor="@android:color/black"
                             android:textSize="14sp" />
 
-                        <TextView
-                            android:id="@+id/tv_product3_key"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:ems="10"
-                            android:gravity="center"
-                            android:importantForAutofill="no"
-                            android:singleLine="true"
-                            android:textColorHint="@android:color/darker_gray"
-                            android:textSize="14sp"
-                            android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <TextView
-                            android:id="@+id/tv_product3_secret"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:ems="10"
-                            android:gravity="center_vertical|end"
-                            android:importantForAutofill="no"
-                            android:textColorHint="@android:color/darker_gray"
-                            android:textSize="14sp"
-                            android:visibility="gone"
-                            tools:targetApi="o" />
-
-                        <TextView
-                            android:id="@+id/tv_device3_key"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:ems="10"
-                            android:gravity="center"
-                            android:importantForAutofill="no"
-                            android:singleLine="true"
-                            android:textColorHint="@android:color/darker_gray"
-                            android:textSize="14sp"
-                            tools:targetApi="o" />
-
-                        <TextView
-                            android:id="@+id/tv_device3_secret"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:ems="10"
-                            android:gravity="center_vertical|end"
-                            android:importantForAutofill="no"
-                            android:textColorHint="@android:color/darker_gray"
-                            android:textSize="14sp"
-                            android:visibility="gone"
-                            tools:targetApi="o" />
-
-                        <RadioButton
-                            android:id="@+id/btn_product3_key"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginEnd="10dp"
-                            android:ellipsize="middle"
-                            android:gravity="center"
-                            android:textColor="@android:color/white"
-                            android:visibility="visible" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -976,6 +938,56 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
+                        <Button
+                            android:id="@+id/btn_ch1_range"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch1_warning_low"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/temp_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch1_warning_high"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/temp_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
                         <ImageView
                             android:id="@+id/iv_ch0"
                             android:layout_width="3dp"
@@ -983,6 +995,18 @@
                             android:layout_marginStart="10dp"
                             android:contentDescription="@string/mine_login"
                             app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch1_range"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/temp_range"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/tv_ch1_title"
@@ -1012,18 +1036,6 @@
                             android:visibility="visible"
                             tools:targetApi="o" />
 
-                        <Spinner
-                            android:id="@+id/sp_ch1_range"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:entries="@array/temp_range"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:theme="@style/itemSpinnerStyle"
-                            android:visibility="gone" />
-
                         <TextView
                             android:id="@+id/tv_ch1_warning_low"
                             android:layout_width="60dp"
@@ -1038,25 +1050,6 @@
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <EditText
-                            android:id="@+id/et_ch1_warning_low"
-                            android:layout_width="60dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/temp_warning_low_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/temp_warning_low_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
                             tools:targetApi="o" />
 
                         <TextView
@@ -1075,8 +1068,66 @@
                             android:visibility="visible"
                             tools:targetApi="o" />
 
+                        <TextView
+                            android:id="@+id/tv_ch1_ok"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_unit"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_ch2_range"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
                         <EditText
-                            android:id="@+id/et_ch1_warning_high"
+                            android:id="@+id/et_ch2_warning_low"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/temp_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch2_warning_high"
                             android:layout_width="70dp"
                             android:layout_height="match_parent"
                             android:layout_gravity="center_horizontal|center_vertical"
@@ -1094,45 +1145,6 @@
                             android:visibility="gone"
                             tools:targetApi="o" />
 
-                        <TextView
-                            android:id="@+id/tv_ch1_ok"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="10dp"
-                            android:background="@null"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:importantForAutofill="no"
-                            android:text="@string/temp_unit"
-                            android:textColorHint="@android:color/darker_gray"
-                            android:textSize="14sp"
-                            android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <Button
-                            android:id="@+id/btn_ch1_range"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="10dp"
-                            android:background="@color/colorPrimary"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:text="@android:string/ok"
-                            android:textColor="@android:color/white"
-                            android:visibility="gone" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="2dp"
-                        android:background="@android:color/white"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
                         <ImageView
                             android:id="@+id/iv_ch2"
                             android:layout_width="3dp"
@@ -1140,6 +1152,16 @@
                             android:layout_marginStart="10dp"
                             android:contentDescription="@string/mine_login"
                             app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch2_range"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/temp_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/tv_ch2_title"
@@ -1168,16 +1190,6 @@
                             android:textSize="14sp"
                             tools:targetApi="o" />
 
-                        <Spinner
-                            android:id="@+id/sp_ch2_range"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:entries="@array/temp_range"
-                            android:theme="@style/itemSpinnerStyle"
-                            android:visibility="gone" />
-
                         <TextView
                             android:id="@+id/tv_ch2_warning_low"
                             android:layout_width="60dp"
@@ -1192,25 +1204,6 @@
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <EditText
-                            android:id="@+id/et_ch2_warning_low"
-                            android:layout_width="60dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/temp_warning_low_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/temp_warning_low_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
                             tools:targetApi="o" />
 
                         <TextView
@@ -1229,25 +1222,6 @@
                             android:visibility="visible"
                             tools:targetApi="o" />
 
-                        <EditText
-                            android:id="@+id/et_ch2_warning_high"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/temp_warning_high_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/temp_warning_high_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
-                            tools:targetApi="o" />
-
                         <TextView
                             android:id="@+id/tv_ch2_ok"
                             android:layout_width="40dp"
@@ -1264,18 +1238,6 @@
                             android:visibility="visible"
                             tools:targetApi="o" />
 
-                        <Button
-                            android:id="@+id/btn_ch2_range"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="10dp"
-                            android:background="@color/colorPrimary"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:text="@android:string/ok"
-                            android:textColor="@android:color/white"
-                            android:visibility="gone" />
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -1287,6 +1249,56 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
+                        <Button
+                            android:id="@+id/btn_ch3_range"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch3_warning_low"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/vib_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch3_warning_high"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/vib_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
                         <ImageView
                             android:id="@+id/iv_ch3"
                             android:layout_width="3dp"
@@ -1294,6 +1306,16 @@
                             android:layout_marginStart="10dp"
                             android:contentDescription="@string/mine_login"
                             app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch3_range"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/vib_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/tv_ch3_title"
@@ -1317,20 +1339,10 @@
                             android:ems="10"
                             android:gravity="center_horizontal|center_vertical"
                             android:importantForAutofill="no"
-                            android:text="@string/temp_range_default"
+                            android:text="@string/vib_range_default"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             tools:targetApi="o" />
-
-                        <Spinner
-                            android:id="@+id/sp_ch3_range"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:entries="@array/temp_range"
-                            android:theme="@style/itemSpinnerStyle"
-                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/tv_ch3_warning_low"
@@ -1342,29 +1354,10 @@
                             android:ems="10"
                             android:gravity="center_horizontal|center_vertical"
                             android:importantForAutofill="no"
-                            android:text="@string/temp_warning_low_default"
+                            android:text="@string/vib_warning_low_default"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <EditText
-                            android:id="@+id/et_ch3_warning_low"
-                            android:layout_width="60dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/temp_warning_low_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/temp_warning_low_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
                             tools:targetApi="o" />
 
                         <TextView
@@ -1377,29 +1370,10 @@
                             android:ems="10"
                             android:gravity="center_horizontal|center_vertical"
                             android:importantForAutofill="no"
-                            android:text="@string/temp_warning_high_default"
+                            android:text="@string/vib_warning_high_default"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <EditText
-                            android:id="@+id/et_ch3_warning_high"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/temp_warning_high_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/temp_warning_high_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
                             tools:targetApi="o" />
 
                         <TextView
@@ -1412,23 +1386,11 @@
                             android:ems="10"
                             android:gravity="center_horizontal|center_vertical"
                             android:importantForAutofill="no"
-                            android:text="@string/temp_unit"
+                            android:text="@string/vib_unit"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
                             tools:targetApi="o" />
-
-                        <Button
-                            android:id="@+id/btn_ch3_range"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="10dp"
-                            android:background="@color/colorPrimary"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:text="@android:string/ok"
-                            android:textColor="@android:color/white"
-                            android:visibility="gone" />
 
                     </LinearLayout>
 
@@ -1441,6 +1403,56 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
+                        <Button
+                            android:id="@+id/btn_ch4_range"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch4_warning_low"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch4_warning_high"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
                         <ImageView
                             android:id="@+id/iv_ch4"
                             android:layout_width="3dp"
@@ -1448,6 +1460,16 @@
                             android:layout_marginStart="10dp"
                             android:contentDescription="@string/mine_login"
                             app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch4_range"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/vib_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/tv_ch4_title"
@@ -1471,20 +1493,10 @@
                             android:ems="10"
                             android:gravity="center_horizontal|center_vertical"
                             android:importantForAutofill="no"
-                            android:text="@string/temp_range_default"
+                            android:text="@string/vib_range_default"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             tools:targetApi="o" />
-
-                        <Spinner
-                            android:id="@+id/sp_ch4_range"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:entries="@array/temp_range"
-                            android:theme="@style/itemSpinnerStyle"
-                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/tv_ch4_warning_low"
@@ -1496,29 +1508,10 @@
                             android:ems="10"
                             android:gravity="center_horizontal|center_vertical"
                             android:importantForAutofill="no"
-                            android:text="@string/temp_warning_low_default"
+                            android:text="@string/vib_warning_low_default"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <EditText
-                            android:id="@+id/et_ch4_warning_low"
-                            android:layout_width="60dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/temp_warning_low_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/temp_warning_low_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
                             tools:targetApi="o" />
 
                         <TextView
@@ -1531,29 +1524,10 @@
                             android:ems="10"
                             android:gravity="center_horizontal|center_vertical"
                             android:importantForAutofill="no"
-                            android:text="@string/temp_warning_high_default"
+                            android:text="@string/vib_warning_high_default"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <EditText
-                            android:id="@+id/et_ch4_warning_high"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/temp_warning_high_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/temp_warning_high_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
                             tools:targetApi="o" />
 
                         <TextView
@@ -1566,23 +1540,11 @@
                             android:ems="10"
                             android:gravity="center_horizontal|center_vertical"
                             android:importantForAutofill="no"
-                            android:text="@string/temp_unit"
+                            android:text="@string/vib_unit"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
                             tools:targetApi="o" />
-
-                        <Button
-                            android:id="@+id/btn_ch4_range"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="10dp"
-                            android:background="@color/colorPrimary"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:text="@android:string/ok"
-                            android:textColor="@android:color/white"
-                            android:visibility="gone" />
 
                     </LinearLayout>
 
@@ -1595,6 +1557,56 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
+                        <Button
+                            android:id="@+id/btn_ch5_range"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch5_warning_low"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch5_warning_high"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/vib_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
                         <ImageView
                             android:id="@+id/iv_ch5"
                             android:layout_width="3dp"
@@ -1602,6 +1614,16 @@
                             android:layout_marginStart="10dp"
                             android:contentDescription="@string/mine_login"
                             app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch5_range"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/vib_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/tv_ch5_title"
@@ -1625,20 +1647,10 @@
                             android:ems="10"
                             android:gravity="center_horizontal|center_vertical"
                             android:importantForAutofill="no"
-                            android:text="@string/temp_range_default"
+                            android:text="@string/vib_range_default"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             tools:targetApi="o" />
-
-                        <Spinner
-                            android:id="@+id/sp_ch5_range"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:entries="@array/temp_range"
-                            android:theme="@style/itemSpinnerStyle"
-                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/tv_ch5_warning_low"
@@ -1650,29 +1662,10 @@
                             android:ems="10"
                             android:gravity="center_horizontal|center_vertical"
                             android:importantForAutofill="no"
-                            android:text="@string/temp_warning_low_default"
+                            android:text="@string/vib_warning_low_default"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <EditText
-                            android:id="@+id/et_ch5_warning_low"
-                            android:layout_width="60dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/temp_warning_low_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/temp_warning_low_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
                             tools:targetApi="o" />
 
                         <TextView
@@ -1685,29 +1678,10 @@
                             android:ems="10"
                             android:gravity="center_horizontal|center_vertical"
                             android:importantForAutofill="no"
-                            android:text="@string/temp_warning_high_default"
+                            android:text="@string/vib_warning_high_default"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <EditText
-                            android:id="@+id/et_ch5_warning_high"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/temp_warning_high_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/temp_warning_high_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
                             tools:targetApi="o" />
 
                         <TextView
@@ -1720,23 +1694,11 @@
                             android:ems="10"
                             android:gravity="center_horizontal|center_vertical"
                             android:importantForAutofill="no"
-                            android:text="@string/temp_unit"
+                            android:text="@string/vib_unit"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
                             tools:targetApi="o" />
-
-                        <Button
-                            android:id="@+id/btn_ch5_range"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="10dp"
-                            android:background="@color/colorPrimary"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:text="@android:string/ok"
-                            android:textColor="@android:color/white"
-                            android:visibility="gone" />
 
                     </LinearLayout>
 
@@ -1749,6 +1711,56 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
+                        <Button
+                            android:id="@+id/btn_ch6_range"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch6_warning_low"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/vib_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch6_warning_high"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/vib_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
                         <ImageView
                             android:id="@+id/iv_ch6"
                             android:layout_width="3dp"
@@ -1756,6 +1768,16 @@
                             android:layout_marginStart="10dp"
                             android:contentDescription="@string/mine_login"
                             app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch6_range"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/vib_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/tv_ch6_title"
@@ -1784,16 +1806,6 @@
                             android:textSize="14sp"
                             tools:targetApi="o" />
 
-                        <Spinner
-                            android:id="@+id/sp_ch6_range"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:entries="@array/vib_range"
-                            android:theme="@style/itemSpinnerStyle"
-                            android:visibility="gone" />
-
                         <TextView
                             android:id="@+id/tv_ch6_warning_low"
                             android:layout_width="60dp"
@@ -1808,25 +1820,6 @@
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <EditText
-                            android:id="@+id/et_ch6_warning_low"
-                            android:layout_width="60dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/vib_warning_low_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/vib_warning_low_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
                             tools:targetApi="o" />
 
                         <TextView
@@ -1845,25 +1838,6 @@
                             android:visibility="visible"
                             tools:targetApi="o" />
 
-                        <EditText
-                            android:id="@+id/et_ch6_warning_high"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/vib_warning_high_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/vib_warning_high_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
-                            tools:targetApi="o" />
-
                         <TextView
                             android:id="@+id/tv_ch6_ok"
                             android:layout_width="40dp"
@@ -1880,18 +1854,6 @@
                             android:visibility="visible"
                             tools:targetApi="o" />
 
-                        <Button
-                            android:id="@+id/btn_ch6_range"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="10dp"
-                            android:background="@color/colorPrimary"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:text="@android:string/ok"
-                            android:textColor="@android:color/white"
-                            android:visibility="gone" />
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -1903,6 +1865,56 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
+                        <Button
+                            android:id="@+id/btn_ch7_range"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch7_warning_low"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/press_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/press_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch7_warning_high"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/press_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/press_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
                         <ImageView
                             android:id="@+id/iv_ch7"
                             android:layout_width="3dp"
@@ -1910,6 +1922,16 @@
                             android:layout_marginStart="10dp"
                             android:contentDescription="@string/mine_login"
                             app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch7_range"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/press_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/tv_ch7_title"
@@ -1938,16 +1960,6 @@
                             android:textSize="14sp"
                             tools:targetApi="o" />
 
-                        <Spinner
-                            android:id="@+id/sp_ch7_range"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:entries="@array/press_range"
-                            android:theme="@style/itemSpinnerStyle"
-                            android:visibility="gone" />
-
                         <TextView
                             android:id="@+id/tv_ch7_warning_low"
                             android:layout_width="60dp"
@@ -1962,25 +1974,6 @@
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <EditText
-                            android:id="@+id/et_ch7_warning_low"
-                            android:layout_width="60dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/press_warning_low_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/press_warning_low_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
                             tools:targetApi="o" />
 
                         <TextView
@@ -1999,25 +1992,6 @@
                             android:visibility="visible"
                             tools:targetApi="o" />
 
-                        <EditText
-                            android:id="@+id/et_ch7_warning_high"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/press_warning_high_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/press_warning_high_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
-                            tools:targetApi="o" />
-
                         <TextView
                             android:id="@+id/tv_ch7_ok"
                             android:layout_width="40dp"
@@ -2034,18 +2008,6 @@
                             android:visibility="visible"
                             tools:targetApi="o" />
 
-                        <Button
-                            android:id="@+id/btn_ch7_range"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="10dp"
-                            android:background="@color/colorPrimary"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:text="@android:string/ok"
-                            android:textColor="@android:color/white"
-                            android:visibility="gone" />
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -2057,6 +2019,56 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
+                        <Button
+                            android:id="@+id/btn_ch8_range"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch8_warning_low"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/volume_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/volume_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch8_warning_high"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/volume_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/volume_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
                         <ImageView
                             android:id="@+id/iv_ch8"
                             android:layout_width="3dp"
@@ -2064,6 +2076,16 @@
                             android:layout_marginStart="10dp"
                             android:contentDescription="@string/mine_login"
                             app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch8_range"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/volume_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/tv_ch8_title"
@@ -2092,16 +2114,6 @@
                             android:textSize="14sp"
                             tools:targetApi="o" />
 
-                        <Spinner
-                            android:id="@+id/sp_ch8_range"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:entries="@array/volume_range"
-                            android:theme="@style/itemSpinnerStyle"
-                            android:visibility="gone" />
-
                         <TextView
                             android:id="@+id/tv_ch8_warning_low"
                             android:layout_width="60dp"
@@ -2116,25 +2128,6 @@
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="14sp"
                             android:visibility="visible"
-                            tools:targetApi="o" />
-
-                        <EditText
-                            android:id="@+id/et_ch8_warning_low"
-                            android:layout_width="60dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/volume_warning_low_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/volume_warning_low_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
                             tools:targetApi="o" />
 
                         <TextView
@@ -2153,25 +2146,6 @@
                             android:visibility="visible"
                             tools:targetApi="o" />
 
-                        <EditText
-                            android:id="@+id/et_ch8_warning_high"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginEnd="5dp"
-                            android:background="@android:color/white"
-                            android:ems="10"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:hint="@string/volume_warning_high_default"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:inputType="number"
-                            android:text="@string/volume_warning_high_default"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp"
-                            android:visibility="gone"
-                            tools:targetApi="o" />
-
                         <TextView
                             android:id="@+id/tv_ch8_ok"
                             android:layout_width="40dp"
@@ -2188,8 +2162,131 @@
                             android:visibility="visible"
                             tools:targetApi="o" />
 
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:contentDescription="@string/mine_login" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/setting_motor"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:contentDescription="@string/mine_login" />
+
+                        <TextView
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/ch_no"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/setting_range"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/warning_low"
+                            android:textColor="@android:color/black"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/warning_high"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/unit"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
                         <Button
-                            android:id="@+id/btn_ch8_range"
+                            android:id="@+id/btn_ch1_range_motor"
                             android:layout_width="40dp"
                             android:layout_height="match_parent"
                             android:layout_gravity="center_horizontal|center_vertical"
@@ -2200,7 +2297,1544 @@
                             android:textColor="@android:color/white"
                             android:visibility="gone" />
 
+                        <EditText
+                            android:id="@+id/et_ch1_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/temp_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch1_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/temp_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <ImageView
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:contentDescription="@string/mine_login"
+                            app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch1_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/temp_range"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/ch1_range"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_ch1_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_range_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch1_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_warning_low_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch1_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_warning_high_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch1_ok_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_unit"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_ch2_range_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch2_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/temp_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch2_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/temp_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <ImageView
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:contentDescription="@string/mine_login"
+                            app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch2_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/temp_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_ch2_title_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/ch2_range"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_ch2_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_range_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch2_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_warning_low_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch2_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_warning_high_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch2_ok_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_unit"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_ch3_range_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch3_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/temp_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch3_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/temp_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <ImageView
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:contentDescription="@string/mine_login"
+                            app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch3_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/temp_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_ch3_title_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/ch3_range"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_ch3_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_range_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch3_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_warning_low_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch3_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_warning_high_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch3_ok_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_unit"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_ch4_range_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch4_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/temp_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch4_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/temp_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/temp_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <ImageView
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:contentDescription="@string/mine_login"
+                            app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch4_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/temp_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_ch4_title_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/ch4_range"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_ch4_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_range_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch4_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_warning_low_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch4_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_warning_high_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch4_ok_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/temp_unit"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_ch5_range_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch5_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/temp_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/vib_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch5_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/vib_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <ImageView
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:contentDescription="@string/mine_login"
+                            app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch5_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/vib_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_ch5_title_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/ch5_range"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_ch5_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_range_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch5_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_warning_low_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch5_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_warning_high_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch5_ok_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_unit"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_ch6_range_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch6_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/vib_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch6_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/vib_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <ImageView
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:contentDescription="@string/mine_login"
+                            app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch6_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/vib_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_ch6_title_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/ch6_range"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_ch6_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_range_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch6_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_warning_low_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch6_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_warning_high_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch6_ok_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_unit"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_ch7_range_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch7_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/press_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch7_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/press_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/vib_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <ImageView
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:contentDescription="@string/mine_login"
+                            app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch7_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/vib_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_ch7_title_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/ch7_range"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_ch7_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_range_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch7_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_warning_low_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch7_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_warning_high_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch7_ok_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_unit"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_ch8_range_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@android:string/ok"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
+
+                        <EditText
+                            android:id="@+id/et_ch8_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_low_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/volume_warning_low_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <EditText
+                            android:id="@+id/et_ch8_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/white"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:hint="@string/vib_warning_high_default"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:text="@string/volume_warning_high_default"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            tools:targetApi="o" />
+
+                        <ImageView
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:contentDescription="@string/mine_login"
+                            app:srcCompat="@drawable/mine_login" />
+
+                        <Spinner
+                            android:id="@+id/sp_ch8_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:entries="@array/vib_range"
+                            android:theme="@style/itemSpinnerStyle"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_ch8_title_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/ch8_range"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_ch8_range_motor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_range_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch8_warning_low_motor"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_warning_low_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch8_warning_high_motor"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_warning_high_default"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                        <TextView
+                            android:id="@+id/tv_ch8_ok_motor"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_marginEnd="10dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:importantForAutofill="no"
+                            android:text="@string/vib_unit"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            tools:targetApi="o" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/title_data"
+                        app:srcCompat="@drawable/myinfo" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="bottom"
+                            android:text="@string/service_oper"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_pump_ch1"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_gravity="top"
+                            android:gravity="top"
+                            android:text="@string/service_oper_english"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_service_guide"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/title_mine"
+                        app:srcCompat="@drawable/mine_detail" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_service_guide_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_service_guide_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/service_guide_detail"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/title_data"
+                        app:srcCompat="@drawable/settings" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="bottom"
+                            android:text="@string/service_more"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_pump_ch2"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_gravity="top"
+                            android:gravity="top"
+                            android:text="@string/service_more_english"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_service_more"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/title_mine"
+                        app:srcCompat="@drawable/mine_detail" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_service_more_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_service_more_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/service_more_detail"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/title_data"
+                        app:srcCompat="@drawable/settings" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="bottom"
+                            android:text="@string/about_app"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_pump_ch4"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_gravity="top"
+                            android:gravity="top"
+                            android:text="@string/about_app_english"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_service_about_app"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/title_mine"
+                        app:srcCompat="@drawable/mine_detail" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_service_about_app_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_service_about_app_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/service_about_app_detail"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/title_data"
+                        app:srcCompat="@drawable/myinfo" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="bottom"
+                            android:text="@string/about_us"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_pump_ch3"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_gravity="top"
+                            android:gravity="top"
+                            android:text="@string/about_us_english"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_service_about_us"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/title_mine"
+                        app:srcCompat="@drawable/mine_detail" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_service_about_us_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_service_about_us_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/service_about_us_detail"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 

@@ -37,7 +37,8 @@ public class Util {
     public static DeviceDataCollect mDataCollect = new DeviceDataCollect();
     private static float mCurrentMin = 4.0f;
     private static float mCurrentMax = 20.0f;
-    public static float[][] mChRangeWarning = new float[8][6];
+    public static float[][] mChRangeWarning = new float[16][6];
+    public static int mDeviceType = 1;//1 for pump; 2 for motor
 
     public static String httpSendPost(String url, String param) {
         try {
@@ -243,6 +244,14 @@ public class Util {
         data.ch5 = (origin.ch5-mCurrentMin)/(mCurrentMax-mCurrentMin)*(mChRangeWarning[5][1]-mChRangeWarning[5][0])+mChRangeWarning[5][0];
         data.ch6 = (origin.ch6-mCurrentMin)/(mCurrentMax-mCurrentMin)*(mChRangeWarning[6][1]-mChRangeWarning[6][0])+mChRangeWarning[6][0];
         data.ch7 = (origin.ch7-mCurrentMin)/(mCurrentMax-mCurrentMin)*(mChRangeWarning[7][1]-mChRangeWarning[7][0])+mChRangeWarning[7][0];
+        data.ch8 = (origin.ch8-mCurrentMin)/(mCurrentMax-mCurrentMin)*(mChRangeWarning[8][1]-mChRangeWarning[8][0])+mChRangeWarning[8][0];
+        data.ch9 = (origin.ch9-mCurrentMin)/(mCurrentMax-mCurrentMin)*(mChRangeWarning[9][1]-mChRangeWarning[9][0])+mChRangeWarning[9][0];
+        data.ch10 = (origin.ch10-mCurrentMin)/(mCurrentMax-mCurrentMin)*(mChRangeWarning[10][1]-mChRangeWarning[10][0])+mChRangeWarning[10][0];
+        data.ch11 = (origin.ch11-mCurrentMin)/(mCurrentMax-mCurrentMin)*(mChRangeWarning[11][1]-mChRangeWarning[11][0])+mChRangeWarning[11][0];
+        data.ch12 = (origin.ch12-mCurrentMin)/(mCurrentMax-mCurrentMin)*(mChRangeWarning[12][1]-mChRangeWarning[12][0])+mChRangeWarning[12][0];
+        data.ch13 = (origin.ch13-mCurrentMin)/(mCurrentMax-mCurrentMin)*(mChRangeWarning[13][1]-mChRangeWarning[13][0])+mChRangeWarning[13][0];
+        data.ch14 = (origin.ch14-mCurrentMin)/(mCurrentMax-mCurrentMin)*(mChRangeWarning[14][1]-mChRangeWarning[14][0])+mChRangeWarning[14][0];
+        data.ch15 = (origin.ch15-mCurrentMin)/(mCurrentMax-mCurrentMin)*(mChRangeWarning[15][1]-mChRangeWarning[15][0])+mChRangeWarning[15][0];
         return data;
     }
 }
